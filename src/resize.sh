@@ -1,16 +1,15 @@
 fn_resize(){
-    
+
     if [[ -z "${DIR}" ]]; then
         echo "Please specify an input directory."
         exit 1
     elif [[ -z "${WIDTH}" ]]; then
         echo "Please specify image width."
         exit 1
-    elif [[ -z "${HEIGHT}" ]]; then
-        echo "Please specify image ."
-        dimension="${WIDTH}x"
+    elif [[ "${HEIGHT}" ]]; then
+        DIMENSION="${WIDTH}x${HEIGHT}"
     else
-        dimension="${WIDTH}x${HEIGHT}"
+        DIMENSION="${WIDTH}x"
     fi
 
     mkdir "${DIR}/resized"
@@ -19,7 +18,7 @@ fn_resize(){
     for img in $( find ${DIR} -type f -iname "*.webp" );
     do
         # resize first
-        convert "${img}" -resize "${dimension}" "${DIR}/resized/${img}"
+        convert "${img}" -resize "${DIMENSION}" "${DIR}/resized/${img}"
     done
 
 }
