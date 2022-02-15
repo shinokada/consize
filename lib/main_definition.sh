@@ -12,6 +12,7 @@ parser_definition() {
     cmd jpg2png -- "Convert to JPG/JPEG to PNG format."
     cmd jpg2webp -- "Convert to JPG/JPEG to WEBP format."
     cmd img2webp -- "Convert to JPG/PNG to WEBP format."
+    cmd optimize_jpg -- "Optimize JPG?JPEG files."
     cmd resize -- "Resize all webp images."
 
     msg -- '' "Examples:

@@ -1,22 +1,17 @@
 fn_optimize_jpg(){
-    # directory containing images
-    input_dir="$1"
 
-    # target image quality
-    quality="$2"
-
-    if [[ -z "$input_dir" ]]; then
+    if [[ -z "${DIR}" ]]; then
         echo "Please specify an input directory."
         exit 1
-    elif [[ -z "$quality" ]]; then
+    elif [[ -z "${QUALITY}" ]]; then
         echo "Please specify image quality."
         exit 1
     fi
 
     # for each jpg or jpeg in the input directory
-    for img in $( find $input_dir -type f -iname "*.jpg" -o -iname "*.jpeg" );
+    for img in $( find ${DIR} -type f -iname "*.jpg" -o -iname "*.jpeg" );
     do
-        cp $img ${img%.*}-optimized.jpg
-        jpegoptim -m $quality ${img%.*}-optimized.jpg
+        cp "$img" "${img%.*}"-optimized.jpg
+        jpegoptim -m "${QUALITY}" "${img%.*}"-optimized.jpg
     done
 }
