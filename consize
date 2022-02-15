@@ -9,11 +9,6 @@ set -eu
 VERSION="0.2.1"
 SCRIPT_NAME=$(basename "$0")
 
-# Set variables
-# VAR1="VAR1"
-# VAR2="VAR2"
-# VAR3="VAR3"
-
 # Keep readlinkf function
 readlinkf() {
     [ "${1:-}" ] || return 1
@@ -58,6 +53,7 @@ script_dir=${self%/*}
     . "${script_dir}/lib/main_definition.sh"
     . "${script_dir}/lib/utils.sh"
     . "${script_dir}/lib/img2webp_definition.sh"
+    . "${script_dir}/lib/jpg2png_definition.sh"
     . "${script_dir}/lib/jpg2webp_definition.sh"
     . "${script_dir}/lib/png2webp_definition.sh"
     . "${script_dir}/lib/resize_definition.sh"
@@ -104,6 +100,14 @@ if [ $# -gt 0 ]; then
         # shellcheck disable=SC1091
         . "${script_dir}/src/img2webp.sh"
         fn_img2webp "$@"
+        ;;
+    jpg2png)
+        eval "$(getoptions parser_definition_jpg2png parse "$0")"
+        parse "$@"
+        eval "set -- $REST"
+        # shellcheck disable=SC1091
+        . "${script_dir}/src/jpg2png.sh"
+        fn_jpg2png "$@"
         ;;
     jpg2webp)
         eval "$(getoptions parser_definition_jpg2webp parse "$0")"
