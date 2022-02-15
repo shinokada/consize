@@ -1,5 +1,4 @@
 fn_jpg2png(){
-    . "${script_dir}/lib/utils.sh"
     check_cmd convert
     
     if [[ -z "${DIR}" ]]; then

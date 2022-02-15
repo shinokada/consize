@@ -1,5 +1,4 @@
 fn_svg2jpg(){
-    . "${script_dir}/lib/utils.sh"
     check_cmd svgexport
 
     if [[ -z "${DIR}" ]]; then

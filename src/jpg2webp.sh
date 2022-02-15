@@ -1,8 +1,6 @@
 fn_jpg2webp(){
-    # . "${script_dir}/lib/utils.sh"
     check_cmd cwebp
     check_cmd convert
-    check_cmd do_not_exist
 
     if [[ -z "${DIR}" ]]; then
         echo "Please specify an input directory."

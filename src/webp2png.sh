@@ -1,5 +1,4 @@
 fn_webp2png(){
-    . "${script_dir}/lib/utils.sh"
     check_cmd dwebp
 
     if [[ -z "${DIR}" ]]; then

@@ -1,5 +1,4 @@
 fn_img2webp(){
-    . "${script_dir}/lib/utils.sh"
     check_cmd cwebp
     check_cmd convert
 

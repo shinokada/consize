@@ -1,5 +1,4 @@
 fn_optimize_jpg(){
-    . "${script_dir}/lib/utils.sh"
     check_cmd jpegoptim
 
     if [[ -z "${DIR}" ]]; then
