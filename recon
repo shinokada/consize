@@ -83,7 +83,10 @@ check_bash 5
 
 # Check dependencies of your script
 check_cmd convert
-# check_cmd you_dont_have_it
+check_cmd webp
+check_optipng
+# check_cmd jpegoptim
+# check_cmd svgo
 
 # Add more commands.
 # Don't forget to add your command in lib/main_definition.sh
