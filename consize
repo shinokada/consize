@@ -57,6 +57,7 @@ script_dir=${self%/*}
     . "${script_dir}/lib/jpg2webp_definition.sh"
     . "${script_dir}/lib/optimize_jpg_definition.sh"
     . "${script_dir}/lib/optimize_png_definition.sh"
+    . "${script_dir}/lib/optimize_svg_definition.sh"
     . "${script_dir}/lib/png2webp_definition.sh"
     . "${script_dir}/lib/resize_definition.sh"
     # import only one of helpers file
@@ -87,7 +88,7 @@ check_cmd cwebp
 check_cmd dwebp
 check_cmd optipng
 check_cmd jpegoptim
-# check_cmd svgo
+check_cmd svgo
 
 # Add more commands.
 # Don't forget to add your command in lib/main_definition.sh
@@ -134,6 +135,14 @@ if [ $# -gt 0 ]; then
         # shellcheck disable=SC1091
         . "${script_dir}/src/optimize_png.sh"
         fn_optimize_png "$@"
+        ;;
+    optimize_svg)
+        eval "$(getoptions parser_definition_optimize_svg parse "$0")"
+        parse "$@"
+        eval "set -- $REST"
+        # shellcheck disable=SC1091
+        . "${script_dir}/src/optimize_svg.sh"
+        fn_optimize_svg "$@"
         ;;
     png2webp)
         eval "$(getoptions parser_definition_png2webp parse "$0")"

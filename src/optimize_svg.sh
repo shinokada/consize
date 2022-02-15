@@ -1,15 +1,13 @@
 fn_optimize_svg(){
-    # directory containing images
-    input_dir="$1"
 
-    if [[ -z "$input_dir" ]]; then
+    if [[ -z "${DIR}" ]]; then
         echo "Please specify an input directory."
         exit 1
     fi
 
     # for each svg in the input directory
-    for img in $( find $input_dir -type f -iname "*.svg" );
+    for img in $( find ${DIR} -type f -iname "*.svg" );
     do
-        svgo $img -o ${img%.*}-optimized.svg
+        svgo "$img" -o "${img%.*}"-optimized.svg
     done
 }
