@@ -1,21 +1,18 @@
 fn_svg2png(){
-    # directory containing images
-    input_dir="$1"
+    . "${script_dir}/lib/utils.sh"
+    check_cmd svgexport
 
-    # png image width
-    width="$2"
-
-    if [[ -z "$input_dir" ]]; then
+    if [[ -z "${DIR}" ]]; then
         echo "Please specify an input directory."
         exit 1
-    elif [[ -z "$width" ]]; then
+    elif [[ -z "${WIDTH}" ]]; then
         echo "Please specify image width."
         exit 1
     fi
 
     # for each svg in the input directory
-    for img in $( find $input_dir -type f -iname "*.svg" );
+    for img in $( find ${DIR} -type f -iname "*.svg" );
     do
-        svgexport $img ${img%.*}.png $width:
+        svgexport "$img" "${img%.*}".png "${WIDTH}":
     done
 }

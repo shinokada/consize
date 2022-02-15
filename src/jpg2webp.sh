@@ -1,4 +1,8 @@
 fn_jpg2webp(){
+    . "${script_dir}/lib/utils.sh"
+    check_cmd cwebp
+    check_cmd convert
+
     if [[ -z "${DIR}" ]]; then
         echo "Please specify an input directory."
         exit 1

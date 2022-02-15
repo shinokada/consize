@@ -16,6 +16,10 @@ parser_definition() {
     cmd optimize_png -- "Optimize PNG files."
     cmd optimize_svg -- "Optimize SVG files."
     cmd png2jpg -- "Convert from PNG to JPG files."
+    cmd svg2jpg -- "Convert from SVG to JPG files."
+    cmd svg2png -- "Convert from SVG to PNG files."
+    cmd webp2jpg -- "Convert from WEBP to JPG files."
+    cmd webp2png -- "Convert from WEBP to PNG files." 
     cmd resize -- "Resize all webp images."
 
     msg -- '' "Examples:

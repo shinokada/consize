@@ -1,4 +1,6 @@
 fn_png2jpg(){
+    . "${script_dir}/lib/utils.sh"
+    check_cmd convert
 
     if [[ -z "${DIR}" ]]; then
         echo "Please specify an input directory."

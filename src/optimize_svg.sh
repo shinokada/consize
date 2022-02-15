@@ -1,4 +1,6 @@
 fn_optimize_svg(){
+    . "${script_dir}/lib/utils.sh"
+    check_cmd svgo
 
     if [[ -z "${DIR}" ]]; then
         echo "Please specify an input directory."

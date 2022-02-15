@@ -1,4 +1,6 @@
 fn_optimize_png(){
+    . "${script_dir}/lib/utils.sh"
+    check_cmd optipng
 
     if [[ -z "${DIR}" ]]; then
         echo "Please specify an input directory."

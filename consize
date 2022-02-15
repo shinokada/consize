@@ -61,6 +61,10 @@ script_dir=${self%/*}
     . "${script_dir}/lib/png2jpg_definition.sh"
     . "${script_dir}/lib/png2webp_definition.sh"
     . "${script_dir}/lib/resize_definition.sh"
+    . "${script_dir}/lib/svg2jpg_definition.sh"
+    . "${script_dir}/lib/svg2png_definition.sh"
+    . "${script_dir}/lib/webp2jpg_definition.sh"
+    . "${script_dir}/lib/webp2png_definition.sh"
     # import only one of helpers file
     # . "${script_dir}/lib/shell_helpers.sh"
     # or
@@ -84,12 +88,13 @@ eval "set -- $REST"
 check_bash 5
 
 # Check dependencies of your script
-check_cmd convert
-check_cmd cwebp
-check_cmd dwebp
-check_cmd optipng
-check_cmd jpegoptim
-check_cmd svgo
+# check_cmd convert
+# check_cmd cwebp
+# check_cmd dwebp
+# check_cmd optipng
+# check_cmd jpegoptim
+# check_cmd svgo
+# check_cmd svgexport
 
 # Add more commands.
 # Don't forget to add your command in lib/main_definition.sh
@@ -168,6 +173,38 @@ if [ $# -gt 0 ]; then
         # shellcheck disable=SC1091
         . "${script_dir}/src/resize.sh"
         fn_resize
+        ;;
+    svg2jpg)
+        eval "$(getoptions parser_definition_svg2jpg parse "$0")"
+        parse "$@"
+        eval "set -- $REST"
+        # shellcheck disable=SC1091
+        . "${script_dir}/src/svg2jpg.sh"
+        fn_svg2jpg
+        ;;
+    svg2png)
+        eval "$(getoptions parser_definition_svg2png parse "$0")"
+        parse "$@"
+        eval "set -- $REST"
+        # shellcheck disable=SC1091
+        . "${script_dir}/src/svg2png.sh"
+        fn_svg2png
+        ;;
+    webp2jpg)
+        eval "$(getoptions parser_definition_webp2jpg parse "$0")"
+        parse "$@"
+        eval "set -- $REST"
+        # shellcheck disable=SC1091
+        . "${script_dir}/src/webp2jpg.sh"
+        fn_webp2jpg
+        ;;
+    webp2png)
+        eval "$(getoptions parser_definition_webp2png parse "$0")"
+        parse "$@"
+        eval "set -- $REST"
+        # shellcheck disable=SC1091
+        . "${script_dir}/src/webp2png.sh"
+        fn_webp2png
         ;;
     --) ;; # no subcommand, arguments only
     esac
