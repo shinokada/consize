@@ -6,7 +6,7 @@
 # Date:          2022-02-15
 
 set -eu
-VERSION="0.2.3"
+VERSION="0.2.4"
 SCRIPT_NAME=$(basename "$0")
 
 # Keep readlinkf function
@@ -56,6 +56,7 @@ script_dir=${self%/*}
     . "${script_dir}/lib/jpg2png_definition.sh"
     . "${script_dir}/lib/jpg2webp_definition.sh"
     . "${script_dir}/lib/optimize_jpg_definition.sh"
+    . "${script_dir}/lib/optimize_png_definition.sh"
     . "${script_dir}/lib/png2webp_definition.sh"
     . "${script_dir}/lib/resize_definition.sh"
     # import only one of helpers file
@@ -125,6 +126,14 @@ if [ $# -gt 0 ]; then
         # shellcheck disable=SC1091
         . "${script_dir}/src/optimize_jpg.sh"
         fn_optimize_jpg "$@"
+        ;;
+    optimize_png)
+        eval "$(getoptions parser_definition_optimize_png parse "$0")"
+        parse "$@"
+        eval "set -- $REST"
+        # shellcheck disable=SC1091
+        . "${script_dir}/src/optimize_png.sh"
+        fn_optimize_png "$@"
         ;;
     png2webp)
         eval "$(getoptions parser_definition_png2webp parse "$0")"

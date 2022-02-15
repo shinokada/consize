@@ -1,8 +1,6 @@
 fn_optimize_png(){
-    # directory containing images
-    input_dir="$1"
 
-    if [[ -z "$input_dir" ]]; then
+    if [[ -z "${DIR}" ]]; then
         echo "Please specify an input directory."
         exit 1
     fi
@@ -16,6 +14,6 @@ fn_optimize_png(){
         optipng "$img" -out "${img%.*}-optimized.png"
     }
     export -f do_file
-    find "$input_dir" -type f -iname "*.png" -print0 | xargs -0 -n1 -P $PROCS bash -c 'do_file "$@"' _
+    find "${DIR}" -type f -iname "*.png" -print0 | xargs -0 -n1 -P $PROCS bash -c 'do_file "$@"' _
 
 }
