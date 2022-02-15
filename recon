@@ -85,7 +85,7 @@ check_bash 5
 check_cmd convert
 check_cmd cwebp
 check_cmd dwebp
-check_optipng
+check_cmd optipng
 # check_cmd jpegoptim
 # check_cmd svgo
 
