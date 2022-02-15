@@ -83,7 +83,8 @@ check_bash 5
 
 # Check dependencies of your script
 check_cmd convert
-check_cmd webp
+check_cmd cwebp
+check_cmd dwebp
 check_optipng
 # check_cmd jpegoptim
 # check_cmd svgo
