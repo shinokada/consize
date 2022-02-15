@@ -59,6 +59,7 @@ script_dir=${self%/*}
     . "${script_dir}/lib/utils.sh"
     . "${script_dir}/lib/png2webp_definition.sh"
     . "${script_dir}/lib/jpg2webp_definition.sh"
+    . "${script_dir}/lib/resize_definition.sh"
     # import only one of helpers file
     # . "${script_dir}/lib/shell_helpers.sh"
     # or
