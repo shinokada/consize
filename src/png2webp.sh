@@ -1,6 +1,4 @@
 fn_png2webp(){
-    # webp image quality
-    quality="$2"
 
     if [[ -z "${DIR}" ]]; then
         echo "Please specify an input directory."
