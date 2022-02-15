@@ -11,6 +11,6 @@ fn_png2webp(){
     # for each png in the input directory
     for img in $( find ${DIR} -type f -iname "*.png" );
     do
-        cwebp $img -q ${QUALITY} -o ${img%.*}.webp
+        cwebp "$img" -q "${QUALITY}" -o "${img%.*}".webp
     done
 }

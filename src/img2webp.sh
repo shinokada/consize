@@ -10,7 +10,7 @@ fn_img2webp(){
     # for each png in the input directory convert to webp
     for img in $( find ${DIR} -type f -iname "*.png" );
     do
-        cwebp $img -q ${QUALITY} -o ${img%.*}.webp
+        cwebp "$img" -q "${QUALITY}" -o "${img%.*}".webp
     done
 
     # for each webp in the input directory convet to webp
