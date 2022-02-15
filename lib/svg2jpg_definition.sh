@@ -1,4 +1,4 @@
-parser_definition_resize() {
+parser_definition_svg2jpg() {
     setup REST plus:true help:usage abbr:true -- \
         "Usage: ${2##*/} [options...] [arguments...]" ''
     msg -- 'Resize images' ''
