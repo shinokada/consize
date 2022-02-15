@@ -6,13 +6,13 @@
 # Date:          2022-02-15
 
 set -eu
-VERSION="0.1.0"
+VERSION="0.1.1"
 SCRIPT_NAME=$(basename "$0")
 
 # Set variables
-VAR1="VAR1"
-VAR2="VAR2"
-VAR3="VAR3"
+# VAR1="VAR1"
+# VAR2="VAR2"
+# VAR3="VAR3"
 
 # Keep readlinkf function
 readlinkf() {
@@ -79,10 +79,10 @@ eval "set -- $REST"
 # fi
 
 # If you are using Bash, check Bash version
-# check_bash 5
+check_bash 5
 
 # Check dependencies of your script
-# check_cmd jq
+check_cmd convert
 # check_cmd you_dont_have_it
 
 # Add more commands.
@@ -107,20 +107,12 @@ if [ $# -gt 0 ]; then
         . "${script_dir}/src/png2webp.sh"
         fn_png2webp "$@"
         ;;
-    text_example)
+    resize)
+        eval "$(getoptions parser_definition_resize parse "$0")"
         # shellcheck disable=SC1091
-        . "${script_dir}/src/text_example.sh"
-        fn_text
+        . "${script_dir}/src/resize.sh"
+        fn_resize
         ;;
-    create)
-        eval "$(getoptions parser_definition_create parse "$0")"
-        parse "$@"
-        eval "set -- $REST"
-        # shellcheck disable=SC1091
-        . "${script_dir}/src/create.sh"
-        fn_create "$@"
-        ;;
-    # more lines
     --) ;; # no subcommand, arguments only
     esac
 fi
