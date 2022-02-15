@@ -12,6 +12,10 @@ fn_resize(){
         DIMENSION="${WIDTH}x"
     fi
 
+    if [ -d "${DIR}/resized" ]; then
+        rm -rf "${DIR}/resized"
+    fi
+
     mkdir "${DIR}/resized"
 
     # for each webp in the input directory

@@ -6,7 +6,7 @@
 # Date:          2022-02-15
 
 set -eu
-VERSION="0.1.2"
+VERSION="0.1.3"
 SCRIPT_NAME=$(basename "$0")
 
 # Set variables
