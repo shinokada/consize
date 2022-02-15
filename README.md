@@ -4,7 +4,15 @@ Convert PNG/JPG to WEBP format. Resize images to `resized` dir.
 
 ## Getting started
 
-Clone or download the repo.
+- Clone or download the repo.
+
+- Using [Awesome package manager](https://github.com/shinokada/awesome):
+
+```sh
+awesome install shinokada/consize
+```
+
+## How to use this
 
 ### Convert PNG/JPG/JPEG to WEBP
 
