@@ -1,10 +1,14 @@
-# Shellscript starter
+# RECON: Resize and convert
 
-[Please read the article]()
+[Create optimize image](https://github.com/shinokada/create-optimize-images)
 
 ## Getting started
 
 Clone or download the repo.
+
+
+
+
 
 ## What in this?
 

@@ -6,7 +6,7 @@
 # Date:          2022-02-15
 
 set -eu
-VERSION="0.0.1"
+VERSION="0.1.0"
 SCRIPT_NAME=$(basename "$0")
 
 # Set variables
@@ -57,13 +57,12 @@ script_dir=${self%/*}
     . "${script_dir}/lib/getoptions.sh"
     . "${script_dir}/lib/main_definition.sh"
     . "${script_dir}/lib/utils.sh"
-    . "${script_dir}/lib/webp_definition.sh"
-    . "${script_dir}/lib/png_definition.sh"
-    . "${script_dir}/lib/jpg_definition.sh"
+    . "${script_dir}/lib/png2webp_definition.sh"
+    . "${script_dir}/lib/jpg2webp_definition.sh"
     # import only one of helpers file
     # . "${script_dir}/lib/shell_helpers.sh"
     # or
-    # . "${script_dir}/lib/bash_helpers.sh"
+    . "${script_dir}/lib/bash_helpers.sh"
 }
 
 # Keep it. You need this for main parser.
@@ -92,21 +91,21 @@ if [ $# -gt 0 ]; then
     cmd=$1
     shift
     case $cmd in
-    cmd1)
-        eval "$(getoptions parser_definition_cmd1 parse "$0")"
+    jpg2webp)
+        eval "$(getoptions parser_definition_jpg2webp parse "$0")"
         parse "$@"
         eval "set -- $REST"
         # shellcheck disable=SC1091
-        . "${script_dir}/src/cmd1.sh"
-        fn_cmd1 "$@"
+        . "${script_dir}/src/jpg2webp.sh"
+        fn_jpg2webp "$@"
         ;;
-    cmd2)
-        eval "$(getoptions parser_definition_cmd2 parse "$0")"
+    png2webp)
+        eval "$(getoptions parser_definition_png2webp parse "$0")"
         parse "$@"
         eval "set -- $REST"
         # shellcheck disable=SC1091
-        . "${script_dir}/src/cmd2.sh"
-        fn_cmd2 "$@"
+        . "${script_dir}/src/png2webp.sh"
+        fn_png2webp "$@"
         ;;
     text_example)
         # shellcheck disable=SC1091
