@@ -111,20 +111,20 @@ if [ $# -gt 0 ]; then
         fn_jpg2png "$@"
         ;;
     jpg2webp)
-        eval "$(getoptions parser_definition_optimize_jpg parse "$0")"
-        parse "$@"
-        eval "set -- $REST"
-        # shellcheck disable=SC1091
-        . "${script_dir}/src/optimize_jpg.sh"
-        fn_optimize_jpg "$@"
-        ;;
-    optimize_jpg)
         eval "$(getoptions parser_definition_jpg2webp parse "$0")"
         parse "$@"
         eval "set -- $REST"
         # shellcheck disable=SC1091
         . "${script_dir}/src/jpg2webp.sh"
         fn_jpg2webp "$@"
+        ;;
+    optimize_jpg)
+        eval "$(getoptions parser_definition_optimize_jpg parse "$0")"
+        parse "$@"
+        eval "set -- $REST"
+        # shellcheck disable=SC1091
+        . "${script_dir}/src/optimize_jpg.sh"
+        fn_optimize_jpg "$@"
         ;;
     png2webp)
         eval "$(getoptions parser_definition_png2webp parse "$0")"
