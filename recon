@@ -114,6 +114,8 @@ if [ $# -gt 0 ]; then
         ;;
     resize)
         eval "$(getoptions parser_definition_resize parse "$0")"
+        parse "$@"
+        eval "set -- $REST"
         # shellcheck disable=SC1091
         . "${script_dir}/src/resize.sh"
         fn_resize
