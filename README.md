@@ -50,6 +50,18 @@ consize png2webp -d . -q 90
 consize jpg2webp -d . -q 90
 ```
 
+### Convert SVG to JPG
+
+Install `svgexport`:
+
+```sh
+npm install svgexport -g
+```
+
+```sh
+consize svg2jpg -d .
+```
+
 ## Credits
 
 - [Create optimize image](https://github.com/shinokada/create-optimize-images)
