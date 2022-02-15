@@ -1,4 +1,4 @@
-fn_optimize_resize(){
+fn_resize(){
     if [[ -z "${DIR}" ]]; then
         echo "Please specify an input directory."
         exit 1
