@@ -15,6 +15,6 @@ fn_svg2jpg(){
     # for each svg in the input directory
     for img in $( find ${DIR} -type f -iname "*.svg" );
     do
-        svgexport "$img" "${img%.*}".jpg "${WIDTH}px": "${QUALITY}%"
+        svgexport "$img" "${img%.*}".jpg "${WIDTH}": "${QUALITY}%"
     done
 }
