@@ -1,4 +1,4 @@
-fn_img2webp(){
+fn_jpg2webp(){
     if [[ -z "${DIR}" ]]; then
         echo "Please specify an input directory."
         exit 1

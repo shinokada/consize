@@ -58,7 +58,7 @@ script_dir=${self%/*}
     . "${script_dir}/lib/main_definition.sh"
     . "${script_dir}/lib/utils.sh"
     . "${script_dir}/lib/png2webp_definition.sh"
-    . "${script_dir}/lib/img2webp_definition.sh"
+    . "${script_dir}/lib/jpg2webp_definition.sh"
     . "${script_dir}/lib/resize_definition.sh"
     # import only one of helpers file
     # . "${script_dir}/lib/shell_helpers.sh"
@@ -96,13 +96,13 @@ if [ $# -gt 0 ]; then
     cmd=$1
     shift
     case $cmd in
-    img2webp)
-        eval "$(getoptions parser_definition_img2webp parse "$0")"
+    jpg2webp)
+        eval "$(getoptions parser_definition_jpg2webp parse "$0")"
         parse "$@"
         eval "set -- $REST"
         # shellcheck disable=SC1091
-        . "${script_dir}/src/img2webp.sh"
-        fn_img2webp "$@"
+        . "${script_dir}/src/jpg2webp.sh"
+        fn_jpg2webp "$@"
         ;;
     png2webp)
         eval "$(getoptions parser_definition_png2webp parse "$0")"
