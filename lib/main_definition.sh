@@ -8,18 +8,18 @@ parser_definition() {
 
     msg -- '' 'Commands: '
     msg -- 'Use command -h for a command help.'
-    cmd png2webp -- "Convert to PNG to webp format."
-    cmd img2png -- "Convert to JPG/PNG to webp format."
+    cmd png2webp -- "Convert to PNG to WEBP format."
+    cmd img2webp -- "Convert to JPG/PNG to WEBP format."
     cmd resize -- "Resize all webp images."
 
     msg -- '' "Examples:
     
-    jpg2webp
-    $SCRIPT_NAME jpg2webp -d .
+    img2webp
+    $SCRIPT_NAME img2webp -d .
     png2webp
     $SCRIPT_NAME png2webp -d .
-    text_example
-    $SCRIPT_NAME text_example
+    resize
+    $SCRIPT_NAME png2webp -d . -w 540 -h 230
     Display the version:
     $SCRIPT_NAME --version
     Display help:
