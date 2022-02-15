@@ -10,7 +10,7 @@ parser_definition() {
     msg -- 'Use command -h for a command help.'
     cmd png2webp -- "Convert to PNG to Webp format."
     cmd jpg2png -- "Convert to JPG to PNG format."
-    cmd text_example -- "Print different type of texts."
+    cmd resize -- "Resize all webp images."
 
     msg -- '' "Examples:
     
