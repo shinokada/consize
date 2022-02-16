@@ -32,7 +32,7 @@ sudo apt install consize_x.x.x-1_all.deb
 
 Please clone or download from the [repo](https://github.com/shinokada/consize).
 
-## How to use this
+## How to use
 
 ### Convert PNG/JPG/JPEG to WEBP
 
@@ -73,3 +73,7 @@ consize svg2jpg -d .
 ## Credits
 
 - [Create optimize image](https://github.com/shinokada/create-optimize-images)
+
+## Article
+
+[Converting Images to WebP From Terminal](https://medium.com/mkdir-awesome/converting-images-to-webp-from-terminal-ab84f3bc6e20)
