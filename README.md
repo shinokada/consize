@@ -11,7 +11,6 @@ brew tap shinokada/consize
 brew install consize
 ```
 
-
 ### Awesome package manager
 
 After installing [Awesome package manager](https://github.com/shinokada/awesome):
@@ -19,6 +18,15 @@ After installing [Awesome package manager](https://github.com/shinokada/awesome)
 ```sh
 awesome install shinokada/consize
 ```
+
+### Debian/Ubuntu
+
+Download the latest release from [the releases page](https://github.com/shinokada/consize/releases).
+
+```sh
+cd /path/to/dir
+sudo apt install consize_x.x.x-1_all.deb
+``` 
 
 ### Clone or download
 
