@@ -11,4 +11,7 @@ fn_optimize_svg(){
     do
         svgo "$img" -o "${img%.*}"-optimized.svg
     done
+
+    bannerColor 'Completed optimizing svg files.' "green" "*"
+
 }

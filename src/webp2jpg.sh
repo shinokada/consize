@@ -19,4 +19,7 @@ fn_webp2jpg(){
         # then convert png to jpg
         convert "${img%.*}".png -quality "${QUALITY}"% "${img%.*}".jpg
     done
+
+    bannerColor 'Completed converting webp files to jpg files.' "green" "*"
+
 }

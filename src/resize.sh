@@ -26,4 +26,6 @@ fn_resize(){
         convert "${img}" -resize "${DIMENSION}" "${DIR}/resized/${img}"
     done
 
+    bannerColor 'Completed resizing webp files.' "green" "*"
+
 }

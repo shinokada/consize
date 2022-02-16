@@ -14,4 +14,7 @@ fn_png2webp(){
     do
         cwebp "$img" -q "${QUALITY}" -o "${img%.*}".webp
     done
+
+    bannerColor 'Completed converting png files to webp files.' "green" "*"
+
 }

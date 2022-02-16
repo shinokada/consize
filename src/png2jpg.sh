@@ -14,4 +14,7 @@ fn_png2jpg(){
     do
         convert "$img" -quality "${QUALITY}"% "${img%.*}".jpg
     done
+
+    bannerColor 'Completed converting png files to jpg files.' "green" "*"
+
 }

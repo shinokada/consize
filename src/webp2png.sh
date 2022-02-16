@@ -11,4 +11,7 @@ fn_webp2png(){
     do
         dwebp "$img" -o "${img%.*}".png
     done
+
+    bannerColor 'Completed converting webp files to png files.' "green" "*"
+
 }

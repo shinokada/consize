@@ -17,4 +17,7 @@ fn_svg2jpg(){
     do
         svgexport "$img" "${img%.*}".jpg "${WIDTH}": "${QUALITY}%"
     done
+
+    bannerColor 'Completed converting svg files to jpg files.' "green" "*"
+
 }

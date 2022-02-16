@@ -11,4 +11,5 @@ fn_jpg2png(){
     do
         convert "$img" "${img%.*}".png
     done
+    bannerColor 'Completed converting from jpg to png.' "green" "*"
 }

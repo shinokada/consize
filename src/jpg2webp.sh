@@ -19,5 +19,5 @@ fn_jpg2webp(){
         # then convert png to webp
         cwebp "${img%.*}".png -q "${QUALITY}" -o "${img%.*}".webp
     done
-
+    bannerColor 'Completed converting from jpg to webp.' "green" "*"
 }

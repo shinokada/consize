@@ -15,4 +15,6 @@ fn_optimize_jpg(){
         cp "$img" "${img%.*}"-optimized.jpg
         jpegoptim -m "${QUALITY}" "${img%.*}"-optimized.jpg
     done
+
+    bannerColor 'Completed optimizing jpg files.' "green" "*"
 }
