@@ -46,6 +46,12 @@ consize img2webp -d . -q 90
 consize resize -d . -w 540 -h 284
 ```
 
+Combine both commands:
+
+```sh
+consize img2webp -d . -q 90 && consize resize -d . -w 540
+```
+
 ### Convert PNG to WEBP
 
 ```sh
