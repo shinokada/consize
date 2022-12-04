@@ -11,12 +11,21 @@ brew tap shinokada/consize
 brew install consize
 ```
 
+Homebrew will install dependencies, `imagemagick`, `webp`, and `optipng`.
+
 ### Awesome package manager
 
 After installing [Awesome package manager](https://github.com/shinokada/awesome):
 
 ```sh
 awesome install shinokada/consize
+```
+
+You need to install `imagemagick`, `webp`, and `optipng`.
+
+```
+// for example
+brew i imagemagick webp optipng
 ```
 
 ### Debian/Ubuntu
