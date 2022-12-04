@@ -3,8 +3,9 @@ parser_definition_svg2jpg() {
         "Usage: ${2##*/} [options...] [arguments...]" ''
     msg -- 'Resize images' ''
     msg -- 'Options:'
-    param DIR -d --dir -- "accepts --dir value / --dir=value"
+    param INPUTDIR -i --input init:="./" -- "input dir, accepts --dir value / --dir=value"
+    param OUTPUTDIR -o --output init:="./" -- "output dir, accepts --dir value / --dir=value"
     param WIDTH -w --width -- "accepts --width value / --width=value"
-    param QUALITY -q --quality -- "accepts --height value / --height=value"
+    param QUALITY -q --quality init:=100 -- "accepts --height value / --height=value"
     disp :usage --help
 }

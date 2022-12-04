@@ -20,38 +20,55 @@ parser_definition() {
     cmd svg2png -- "Convert from SVG to PNG files."
     cmd webp2jpg -- "Convert from WEBP to JPG files."
     cmd webp2png -- "Convert from WEBP to PNG files." 
-    cmd resize -- "Resize all webp images."
+    cmd resize -- "Resize all WEBP images."
 
     msg -- '' "Examples:
+    -i has the default value of the current directory, ./
+    -o has the default value of the current directory, ./
+    -q has the default value of 100
 
-    img2webp
-    $SCRIPT_NAME img2webp -d . -q 90
-    jpg2png
-    $SCRIPT_NAME jpg2png -d .
-    jpg2webp
-    $SCRIPT_NAME jpg2webp -d . -q 90
-    optimize_jpg
-    $SCRIPT_NAME optimize_jpg -d . -q 90
-    optimize_png
-    $SCRIPT_NAME optimize_png -d .
-    optimize_svg
-    $SCRIPT_NAME optimize_svg -d .
-    png2jpg
-    $SCRIPT_NAME png2jpg -d . -q 90
-    png2webp
-    $SCRIPT_NAME png2webp -d . -q 90
-    resize
-    $SCRIPT_NAME png2webp -d . -w 540 -h 230
-    svg2jpg
-    $SCRIPT_NAME svg2jpg -d . -w 540 -q 90
-    svg2png
-    $SCRIPT_NAME svg2png -d . -w 540
-    webp2jpg
-    $SCRIPT_NAME webp2jpg -d . -q 90
-    webp2png
-    $SCRIPT_NAME webp2png -d . 
+    All image file to WEBP files:
+    $SCRIPT_NAME img2webp 
+
+    All JPG/JPEG files to PNG files, set input directory:
+    $SCRIPT_NAME jpg2png -i path/to/input-dir
+
+    All JPG/JPEG files to WEBP files, set output directory:
+    $SCRIPT_NAME jpg2webp -o path/to/output-dir
+
+    Optimize JPG/JPEG files, set input, output, and quality:
+    $SCRIPT_NAME optimize_jpg -i path/to/input-dir -o path/to/output-dir -q 70
+    
+    Optimize PNG files:
+    $SCRIPT_NAME optimize_png 
+
+    Optimize SVG files: 
+    $SCRIPT_NAME optimize_svg 
+
+    All PNG files to JPG/JPEG files:
+    $SCRIPT_NAME png2jpg 
+    
+    All PNG files to WEBP files:
+    $SCRIPT_NAME png2webp 
+
+    All PNG files to WEBP files and resize:
+    $SCRIPT_NAME png2webp -w 540 -h 230
+    
+    All SVG files to JPG files and resize:
+    $SCRIPT_NAME svg2jpg -w 540
+
+    All SVG files to PNG files and resize:
+    $SCRIPT_NAME svg2png -w 540
+
+    All WEBP files to JPG files:
+    $SCRIPT_NAME webp2jpg
+
+    All WEBP files to PNG files:
+    $SCRIPT_NAME webp2png 
+
     Display the version:
     $SCRIPT_NAME --version
+    
     Display help:
     $SCRIPT_NAME -h | --help
 "

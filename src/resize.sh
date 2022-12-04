@@ -1,10 +1,7 @@
 fn_resize(){
     check_cmd convert
 
-    if [[ -z "${DIR}" ]]; then
-        echo "Please specify an input directory."
-        exit 1
-    elif [[ -z "${WIDTH}" ]]; then
+    if [[ -z "${WIDTH}" ]]; then
         echo "Please specify image width."
         exit 1
     elif [[ "${HEIGHT}" ]]; then
@@ -13,17 +10,17 @@ fn_resize(){
         DIMENSION="${WIDTH}x"
     fi
 
-    if [ -d "${DIR}/resized" ]; then
-        rm -rf "${DIR}/resized"
+    if [ -d "${INPUTDIR}/resized" ]; then
+        rm -rf "${INPUTDIR}/resized"
     fi
 
-    mkdir "${DIR}/resized"
+    mkdir "${INPUTDIR}/resized"
 
     # for each webp in the input directory
-    for img in $( find ${DIR} -type f -iname "*.webp" );
+    for img in $( find ${INPUTDIR} -type f -iname "*.webp" );
     do
         # resize first
-        convert "${img}" -resize "${DIMENSION}" "${DIR}/resized/${img}"
+        convert "${img}" -resize "${DIMENSION}" "${OUTPUTDIR}//resized/${img}"
     done
 
     bannerColor 'Completed resizing webp files.' "green" "*"
