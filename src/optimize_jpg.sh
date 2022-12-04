@@ -4,9 +4,15 @@ fn_optimize_jpg(){
     # for each jpg or jpeg in the input directory
     for img in $( find ${INPUTDIR} -type f -iname "*.jpg" -o -iname "*.jpeg" );
     do
-        cp "$img" "${OUTPUTDIR}/${img%.*}"-optimized.jpg
-        jpegoptim -m "${QUALITY}" "${OUTPUTDIR}/${img%.*}"-optimized.jpg
+        cp "$img" "${img%.*}"-optimized.jpg
+        jpegoptim -m "${QUALITY}" "${img%.*}"-optimized.jpg
     done
 
     bannerColor 'Completed optimizing jpg files.' "green" "*"
+    
+    if [ ${OUTPUTDIR} ];then
+        bannerColor "Moving converted files to ${OUTPUTDIR} ... " "blue" "*"
+        mkdir -p ${OUTPUTDIR} && mv *.webp "${OUTPUTDIR}"
+        bannerColor "Moved all the files to ${OUTPUTDIR}." "green" "*"
+    fi
 }

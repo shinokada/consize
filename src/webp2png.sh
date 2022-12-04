@@ -4,9 +4,14 @@ fn_webp2png(){
     # for each webp in the input directory
     for img in $( find ${INPUTDIR} -type f -iname "*.webp" );
     do
-        dwebp "$img" -o "${OUTPUTDIR}/${img%.*}".png
+        dwebp "$img" -o "${img%.*}".png
     done
 
     bannerColor 'Completed converting webp files to png files.' "green" "*"
 
+    if [ ${OUTPUTDIR} ];then
+        bannerColor "Moving converted files to ${OUTPUTDIR} ... " "blue" "*"
+        mkdir -p ${OUTPUTDIR} && mv *.webp "${OUTPUTDIR}"
+        bannerColor "Moved all the files to ${OUTPUTDIR}." "green" "*"
+    fi
 }

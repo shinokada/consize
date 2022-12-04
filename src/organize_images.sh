@@ -17,4 +17,10 @@ fn_organize_images(){
         # move the images into their type directory
         rsync -a $img $img_type
     done
+
+    if [ ${OUTPUTDIR} ];then
+        bannerColor "Moving converted files to ${OUTPUTDIR} ... " "blue" "*"
+        mkdir -p ${OUTPUTDIR} && mv *.webp "${OUTPUTDIR}"
+        bannerColor "Moved all the files to ${OUTPUTDIR}." "green" "*"
+    fi
 }

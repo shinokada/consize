@@ -4,7 +4,13 @@ fn_jpg2png(){
     # for each jpg or jpeg in the input directory
     for img in $( find ${INPUTDIR} -type f -iname "*.jpg" -o -iname "*.jpeg" );
     do
-        convert "$img" "${OUTPUTDIR}/${img%.*}".png
+        convert "$img" "${img%.*}".png
     done
     bannerColor 'Completed converting from jpg to png.' "green" "*"
+
+    if [ ${OUTPUTDIR} ];then
+        bannerColor "Moving converted files to ${OUTPUTDIR} ... " "blue" "*"
+        mkdir -p ${OUTPUTDIR} && mv *.webp "${OUTPUTDIR}"
+        bannerColor "Moved all the files to ${OUTPUTDIR}." "green" "*"
+    fi
 }

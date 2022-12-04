@@ -20,9 +20,14 @@ fn_resize(){
     for img in $( find ${INPUTDIR} -type f -iname "*.webp" );
     do
         # resize first
-        convert "${img}" -resize "${DIMENSION}" "${OUTPUTDIR}//resized/${img}"
+        convert "${img}" -resize "${DIMENSION}" "/resized/${img}"
     done
 
     bannerColor 'Completed resizing webp files.' "green" "*"
 
+    if [ ${OUTPUTDIR} ];then
+        bannerColor "Moving converted files to ${OUTPUTDIR} ... " "blue" "*"
+        mkdir -p ${OUTPUTDIR} && mv *.webp "${OUTPUTDIR}"
+        bannerColor "Moved all the files to ${OUTPUTDIR}." "green" "*"
+    fi
 }
