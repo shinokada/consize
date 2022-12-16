@@ -52,6 +52,8 @@ Please clone or download from the [repo](https://github.com/shinokada/consize).
 
 ## How to use
 
+Running this script will convert all images in the current directory.
+
 ### Convert PNG/JPG/JPEG to WEBP
 
 ```sh
