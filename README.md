@@ -1,4 +1,13 @@
-# CONSIZE: CONvert and reSIZE
+<h1 align="center">Consize: CONvert and reSIZE</h1>
+
+<p align="center">
+<a href="https://shinokada.github.io/consize/">Consize</a>
+</p>
+
+<p align="center">
+<a href="https://twitter.com/shinokada" rel="nofollow"><img src="https://img.shields.io/badge/created%20by-@shinokada-4BBAAB.svg" alt="Created by Shin Okada"></a>
+<a href="https://opensource.org/licenses/MIT" rel="nofollow"><img src="https://img.shields.io/github/license/shinokada/consize" alt="License"></a>
+</p>
 
 Convert PNG/JPG to WEBP format. Resize images to `resized` dir.
 
