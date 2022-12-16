@@ -9,7 +9,7 @@
 <a href="https://opensource.org/licenses/MIT" rel="nofollow"><img src="https://img.shields.io/github/license/shinokada/consize" alt="License"></a>
 </p>
 
-Convert PNG/JPG to WEBP format. Resize images to `resized` dir.
+Bash script to convert formats and resize image.
 
 ## Getting started
 
@@ -57,6 +57,8 @@ Please clone or download from the [repo](https://github.com/shinokada/consize).
 ```sh
 consize img2webp -d . -q 90
 ```
+
+Resized images will be in the `resized` dir.
 
 ### Resize all files to 540x284
 
