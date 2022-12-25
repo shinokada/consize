@@ -1,7 +1,7 @@
 <h1 align="center">Consize: CONvert and reSIZE</h1>
 
 <p align="center">
-<a href="https://shinokada.github.io/consize/">Consize</a>
+<a href="https://consize.codewithshin.com/">Consize</a>
 </p>
 
 <p align="center">
