@@ -17,7 +17,8 @@ fn_resize(){
     mkdir "${INPUTDIR}/resized"
 
     # for each webp in the input directory
-    for img in $( find $(pwd) -type f -iname "*.webp" );
+    bannerColor 'Resizing webp files ...' "green" "*"
+    for img in $( find . -type f -iname "*.webp" );
     do
         # resize first
         convert "${img}" -resize "${DIMENSION}" "/resized/${img}"
