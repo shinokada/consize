@@ -4,7 +4,7 @@ parser_definition_resize() {
     msg -- 'Resize images' ''
     msg -- 'Options:'
     param INPUTDIR -i --input init:="./" -- "input dir, accepts --dir value / --dir=value"
-    param OUTPUTDIR -o --output init:="./" -- "output dir, accepts --dir value / --dir=value"
+    param OUTPUTDIR -o --output -- "output dir, accepts --dir value / --dir=value"
     param WIDTH -w --width -- "accepts --width value / --width=value"
     param HEIGHT -h --height -- "accepts --height value / --height=value"
     disp :usage --help

@@ -20,12 +20,12 @@ parser_definition() {
     cmd svg2png -- "Convert from SVG to PNG files."
     cmd webp2jpg -- "Convert from WEBP to JPG files."
     cmd webp2png -- "Convert from WEBP to PNG files." 
-    cmd resize -- "Resize all WEBP images."
+    cmd resize -- "Resize all PNG/JPG/WEBP images."
 
     msg -- '' "Examples:
-    -i has the default value of the current directory, ./
-    -o has the default value of the current directory, ./
-    -q has the default value of 100
+    -i Input dir option has the default value of the current directory, ./
+    -o Output dir option has no default value 
+    -q Quality option has the default value of 100
 
     All image file to WEBP files:
     $SCRIPT_NAME img2webp 

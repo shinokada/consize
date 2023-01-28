@@ -4,6 +4,6 @@ parser_definition_optimize_png() {
     msg -- 'Optimize JPG images.' ''
     msg -- 'Options:'
     param INPUTDIR -i --input init:="./" -- "input dir, accepts --dir value / --dir=value"
-    param OUTPUTDIR -o --output init:="./" -- "output dir, accepts --dir value / --dir=value"
+    param OUTPUTDIR -o --output -- "output dir, accepts --dir value / --dir=value"
     disp :usage -h --help
 }
