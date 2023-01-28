@@ -344,26 +344,26 @@ dirname() {
 }
 
 
-basename() {
-    # Get the base-name of a file path
-    # Usage: basename "path" ["suffix"]
-    # basename ~/Pictures/Wallpapers/1.jpg
-    # 1.jpg
+# basename() {
+#     # Get the base-name of a file path
+#     # Usage: basename "path" ["suffix"]
+#     # basename ~/Pictures/Wallpapers/1.jpg
+#     # 1.jpg
 
-    # basename ~/Pictures/Wallpapers/1.jpg .jpg
-    # 1
+#     # basename ~/Pictures/Wallpapers/1.jpg .jpg
+#     # 1
 
-    # basename ~/Pictures/Downloads/
-    # Downloads
+#     # basename ~/Pictures/Downloads/
+#     # Downloads
 
-    local tmp
+#     local tmp
 
-    tmp=${1%"${1##*[!/]}"}
-    tmp=${tmp##*/}
-    tmp=${tmp%"${2/"$tmp"}"}
+#     tmp=${1%"${1##*[!/]}"}
+#     tmp=${tmp##*/}
+#     tmp=${tmp%"${2/"$tmp"}"}
 
-    printf '%s\n' "${tmp:-/}"
-}
+#     printf '%s\n' "${tmp:-/}"
+# }
 
 
 get_window_size() {
