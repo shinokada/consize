@@ -9,6 +9,8 @@
 <a href="https://opensource.org/licenses/MIT" rel="nofollow"><img src="https://img.shields.io/github/license/shinokada/consize" alt="License"></a>
 </p>
 
+<iframe src="https://github.com/sponsors/shinokada/button" title="Sponsor shinokada" height="32" width="114" style="border: 0; border-radius: 6px;"></iframe>
+
 Bash script to convert formats and resize image.
 
 ## Getting started
