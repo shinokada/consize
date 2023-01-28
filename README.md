@@ -65,13 +65,13 @@ Resized images will be in the `resized` dir.
 ### Resize all files to 540x284
 
 ```sh
-consize resize -d . -w 540 -h 284
+consize resize -w 540 -h 284
 ```
 
 Combine both commands:
 
 ```sh
-consize img2webp -d . -q 90 && consize resize -d . -w 540
+consize img2webp -d . -q 90 && consize resize -w 540
 ```
 
 ### Convert PNG to WEBP

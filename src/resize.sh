@@ -20,7 +20,7 @@ fn_resize(){
 
     # for each webp in the input directory
     bannerColor 'Resizing webp files ...' "blue" "*"
-    for img in $( find "$CURRENT_DIR" -type f -iname "*.webp" );
+    for img in $( find "$CURRENT_DIR" -type f \( -iname "*.webp" -o -iname "*.png" -o -iname "*.jpg" \));
     do
         # resize first
         bannerColor "Resizing ${img} with dimention: ${DIMENSION}" "green" "*"

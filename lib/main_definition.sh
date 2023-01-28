@@ -55,10 +55,10 @@ parser_definition() {
     $SCRIPT_NAME png2webp && $SCRIPT_NAME resize -w 540 -h 230
     
     All SVG files to JPG files and resize:
-    $SCRIPT_NAME svg2jpg -w 540
+    $SCRIPT_NAME svg2jpg && $SCRIPT_NAME resize -w 540
 
     All SVG files to PNG files and resize:
-    $SCRIPT_NAME svg2png -w 540
+    $SCRIPT_NAME svg2png && $SCRIPT_NAME resize -w 540
 
     All WEBP files to JPG files:
     $SCRIPT_NAME webp2jpg
