@@ -9,10 +9,10 @@
 <a href="https://opensource.org/licenses/MIT" rel="nofollow"><img src="https://img.shields.io/github/license/shinokada/consize" alt="License"></a>
 </p>
 
+Bash script to convert formats and resize image.
+
 [![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/shinokada)
 
-
-Bash script to convert formats and resize image.
 
 ## Getting started
 
