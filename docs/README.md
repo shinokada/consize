@@ -15,6 +15,10 @@
 
 Bash script to convert formats and resize image.
 
+<p align="center">
+<a href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps"><img src="https://img.shields.io/badge/PWA-enabled-brightgreen" alt="PWA Shield"></a>
+</p>
+
 ## Getting started
 
 ### Homebrew
@@ -109,3 +113,9 @@ consize svg2jpg -d .
 ## Article
 
 [Converting Images to WebP From Terminal](https://medium.com/mkdir-awesome/converting-images-to-webp-from-terminal-ab84f3bc6e20)
+
+## PWA: Fast & Offline
+
+This website can be downloaded and installed on your device for offline access as a Progressive Web App.
+
+To install a PWA, look for the "Add to Home Screen" option in the browser's menu or settings. On most mobile devices, this option can be found by visiting the website, then selecting the "Options" or "Menu" button in the browser, and looking for the "Add to Home Screen" option. On some desktop browsers, right-click on the page and select "Install".
