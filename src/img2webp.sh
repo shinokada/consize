@@ -2,6 +2,8 @@ fn_img2webp(){
     check_cmd cwebp
     check_cmd convert
 
+    # This will NOT recursively convert. Only files in the INPUTDIR.
+
     # for each png in the input directory convert to webp
     for img in $( find ${INPUTDIR} -type f -iname "*.png" );
     do
