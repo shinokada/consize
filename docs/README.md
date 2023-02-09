@@ -102,7 +102,7 @@ consize svg2jpg -d .
 
 ## Optimize
 
-These commands will run recursively in the current directory or directory specified by the `-o` option.
+These commands will run **recursively** in the current directory or directory specified by the `-o` option.
 
 ```bash
 consize optimize_jpg
@@ -112,7 +112,11 @@ consize optimize_svg
 
 ## Organize files
 
-The `consize organize_files` command will create directories based on the file extensions and relocate all files into their respective directories.
+The `consize organize_files` command will create directories based on the file extensions and move all files into their respective directories.
+
+```bash
+consize organize_files
+```
 
 
 ## Credits
