@@ -21,9 +21,15 @@
 </picture>
 </p>
 
-Bash script to convert formats and resize image.
+A Bash script for converting and resizing images
 
-## Getting started
+## Introduction
+
+Consize is a Bash script for converting and resizing image formats. It supports converting PNG, JPG, JPEG and WEBP files. The script is built with the help of ImageMagick, webp, and optipng.
+
+## Installation
+
+Consize can be installed using Homebrew, [Awesome package manager](https://github.com/shinokada/awesome) or by cloning/downloading the repository.
 
 ### Homebrew
 
@@ -32,21 +38,12 @@ brew tap shinokada/consize
 brew install consize
 ```
 
-Homebrew will install dependencies, `imagemagick`, `webp`, and `optipng`.
-
 ### Awesome package manager
 
 After installing [Awesome package manager](https://github.com/shinokada/awesome):
 
 ```sh
 awesome install shinokada/consize
-```
-
-You need to install `imagemagick`, `webp`, and `optipng`.
-
-```
-// for example
-brew i imagemagick webp optipng
 ```
 
 ### Debian/Ubuntu
@@ -62,14 +59,26 @@ sudo apt install consize_x.x.x-1_all.deb
 
 Please clone or download from the [repo](https://github.com/shinokada/consize).
 
-## How to use
+```sh
+git clone https://github.com/shinokada/consize.git
+```
+
+## Dependencies
+
+Consize requires the following dependencies to be installed:
+
+- ImageMagick
+- webp
+- optipng
+
+## Usage
 
 ### Options
 
 | Options | Description |
 |--|--|
-|-i| Input dir option has the default value of the current directory, ./|
-|-o| Output dir option has no default value |
+|-i| Input directory option has the default value of the current directory (.)|
+|-o| Output directory option has no default value |
 |-q| Quality option has the default value of 100|
 
 ### Convert all image files (PNG/JPG/JPEG) to WEBP
@@ -80,13 +89,13 @@ consize img2webp -o path/to/outputdir
 
 ### Convert JPG/JPEG files
 
-#### To WEBP
+To WEBP:
 
 ```sh
 consize jpg2webp -o path/to/outputdir
 ```
 
-#### To PNG
+To PNG:
 
 ```sh
 consize jpg2png -o path/to/outputdir
@@ -94,7 +103,7 @@ consize jpg2png -o path/to/outputdir
 
 ## Optimize
 
-These commands will run **recursively** in the current directory or directory specified by the `-o` option.
+The following commands will run recursively in the current directory or the directory specified by the -o option.
 
 ```bash
 consize optimize_jpg 
@@ -102,7 +111,7 @@ consize optimize_png
 consize optimize_svg
 ```
 
-## Organize files
+## Organize Files
 
 The `consize organize_files` command will create directories based on the file extensions and move all files into their respective directories.
 
@@ -113,13 +122,13 @@ consize organize_files
 
 ### Convert PNG
 
-#### To JPG
+To JPG:
 
 ```sh
 consize png2jpg -o path/to/outputdir
 ```
 
-#### To WEBP
+To WEBP:
 
 ```sh
 consize png2webp -o path/to/outputdir
@@ -128,13 +137,13 @@ consize png2webp -o path/to/outputdir
 
 ### Resize JPG/PNG/WEBP
 
-Resized images will be in the `resized` dir.
+The resized images will be in the `resized` directory.
 
 ```sh
 consize resize -w 540 -h 284
 ```
 
-Set only `width`
+To set only the `width`:
 
 ```sh
 consize resize -w 540
@@ -149,13 +158,13 @@ Install `svgexport`:
 npm install svgexport -g
 ```
 
-#### To JPG
+To JPG:
 
 ```sh
 consize svg2jpg
 ```
 
-#### To PNG
+To PNG:
 
 ```sh
 consize svg2png
@@ -163,13 +172,13 @@ consize svg2png
 
 ### Convert WEBP
 
-#### To JPG
+To JPG:
 
 ```sh
 consize webp2jpg
 ```
 
-#### To PNG
+To PNG:
 
 ```sh
 consize webp2png
