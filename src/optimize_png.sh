@@ -13,7 +13,8 @@ fn_optimize_png(){
     find "${INPUTDIR}" -type f -iname "*.png" -print0 | xargs -0 -n1 -P $PROCS bash -c 'do_file "$@"' _
 
     bannerColor 'Completed converting img files to webp files.' "green" "*"
-
+    
+    # move optimized png files
     if [ ${OUTPUTDIR} ];then
         bannerColor "Moving converted files to ${OUTPUTDIR} ... " "blue" "*"
         mkdir -p ${OUTPUTDIR} && mv *-optimized.png "${OUTPUTDIR}"

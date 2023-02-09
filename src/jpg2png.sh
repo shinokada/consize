@@ -5,12 +5,13 @@ fn_jpg2png(){
     for img in $( find ${INPUTDIR} -type f -iname "*.jpg" -o -iname "*.jpeg" );
     do
         convert "$img" "${img%.*}".png
-    done
-    bannerColor 'Completed converting from JPG to PNG.' "green" "*"
 
-    if [ ${OUTPUTDIR} ];then
+        if [ ${OUTPUTDIR} ];then
         bannerColor "Moving converted files to ${OUTPUTDIR} ... " "blue" "*"
-        mkdir -p ${OUTPUTDIR} && mv *.png "${OUTPUTDIR}"
+        mkdir -p ${OUTPUTDIR} && mv "${img%.*}".png "${OUTPUTDIR}"
         bannerColor "Moved all the PNG files to ${OUTPUTDIR}." "green" "*"
     fi
+    done
+    
+    bannerColor 'Completed converting from JPG to PNG.' "green" "*"
 }

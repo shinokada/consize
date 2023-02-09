@@ -11,6 +11,7 @@ fn_optimize_jpg(){
 
     bannerColor 'Completed optimizing jpg files.' "green" "*"
     
+    # move optimized jpg files
     if [ ${OUTPUTDIR} ];then
         bannerColor "Moving converted files to ${OUTPUTDIR} ... " "blue" "*"
         mkdir -p ${OUTPUTDIR} && mv *-optimized.jpg "${OUTPUTDIR}"

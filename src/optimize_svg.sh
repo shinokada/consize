@@ -8,7 +8,8 @@ fn_optimize_svg(){
     done
 
     bannerColor 'Completed optimizing svg files.' "green" "*"
-
+    
+    # move optimized svg files
     if [ ${OUTPUTDIR} ];then
         bannerColor "Moving converted files to ${OUTPUTDIR} ... " "blue" "*"
         mkdir -p ${OUTPUTDIR} && mv *-optimized.svg "${OUTPUTDIR}"
