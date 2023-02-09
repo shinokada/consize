@@ -1,4 +1,4 @@
-fn_organize_imgs(){
+fn_organize_files(){
     # input_dir="$1"
 
     # if [[ -z "$input_dir" ]]; then

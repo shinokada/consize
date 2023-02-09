@@ -110,6 +110,11 @@ consize optimize_png
 consize optimize_svg
 ```
 
+## Organize files
+
+The `consize organize_files` command will create directories based on the file extensions and relocate all files into their respective directories.
+
+
 ## Credits
 
 - [Create optimize image](https://github.com/shinokada/create-optimize-images)
