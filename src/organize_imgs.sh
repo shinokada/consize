@@ -1,12 +1,12 @@
 fn_organize_imgs(){
-    input_dir="$1"
+    # input_dir="$1"
 
-    if [[ -z "$input_dir" ]]; then
-        bannerColor 'Please specify an input directory.' "red" "*"
-        exit 1
-    fi
+    # if [[ -z "$input_dir" ]]; then
+    #     bannerColor 'Please specify an input directory.' "red" "*"
+    #     exit 1
+    # fi
 
-    for img in $( find $input_dir -type f -iname "*" );
+    for img in $( find ${INPUTDIR} -type f -iname "*" );
     do
         # get the type of the image
         img_type=$(basename `file --mime-type -b $img`)
