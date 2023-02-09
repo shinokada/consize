@@ -15,6 +15,7 @@ parser_definition() {
     cmd optimize_jpg -- "Optimize JPG/JPEG files."
     cmd optimize_png -- "Optimize PNG files."
     cmd optimize_svg -- "Optimize SVG files."
+    cmd organize_imgs -- "Organize images to each dir."
     cmd png2jpg -- "Convert from PNG to JPG files."
     cmd svg2jpg -- "Convert from SVG to JPG files."
     cmd svg2png -- "Convert from SVG to PNG files."
