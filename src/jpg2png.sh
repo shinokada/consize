@@ -6,11 +6,11 @@ fn_jpg2png(){
     do
         convert "$img" "${img%.*}".png
     done
-    bannerColor 'Completed converting from jpg to png.' "green" "*"
+    bannerColor 'Completed converting from JPG to PNG.' "green" "*"
 
     if [ ${OUTPUTDIR} ];then
         bannerColor "Moving converted files to ${OUTPUTDIR} ... " "blue" "*"
-        mkdir -p ${OUTPUTDIR} && mv *.webp "${OUTPUTDIR}"
-        bannerColor "Moved all the files to ${OUTPUTDIR}." "green" "*"
+        mkdir -p ${OUTPUTDIR} && mv *.png "${OUTPUTDIR}"
+        bannerColor "Moved all the PNG files to ${OUTPUTDIR}." "green" "*"
     fi
 }
