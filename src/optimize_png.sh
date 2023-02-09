@@ -16,7 +16,7 @@ fn_optimize_png(){
 
     if [ ${OUTPUTDIR} ];then
         bannerColor "Moving converted files to ${OUTPUTDIR} ... " "blue" "*"
-        mkdir -p ${OUTPUTDIR} && mv *.webp "${OUTPUTDIR}"
-        bannerColor "Moved all the files to ${OUTPUTDIR}." "green" "*"
+        mkdir -p ${OUTPUTDIR} && mv *-optimized.png "${OUTPUTDIR}"
+        bannerColor "Moved all the optimized PNG files to ${OUTPUTDIR}." "green" "*"
     fi
 }
