@@ -13,8 +13,8 @@ fn_organize_files(){
         # create a directory for the image type
         mkdir -p $img_type
 
-        # move the images into their type directory
-        rsync -a $img $img_type
+         # move the images into their type directory
+        mv "$img" "$img_type"
     done
     bannerColor 'Moved all files to each directory.' "green" "*"
 }
