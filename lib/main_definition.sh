@@ -15,7 +15,8 @@ parser_definition() {
     cmd optimize_jpg -- "Optimize JPG/JPEG files."
     cmd optimize_png -- "Optimize PNG files."
     cmd optimize_svg -- "Optimize SVG files."
-    cmd organize_files -- "Create directories based on the file extensions and relocate all files into their respective directories"
+    cmd organize_files -- "Create directories based on the file 
+    extensions and relocate all files into their respective directories"
     cmd png2jpg -- "Convert from PNG to JPG files."
     cmd svg2jpg -- "Convert from SVG to JPG files."
     cmd svg2png -- "Convert from SVG to PNG files."
@@ -23,10 +24,12 @@ parser_definition() {
     cmd webp2png -- "Convert from WEBP to PNG files." 
     cmd resize -- "Resize all PNG/JPG/WEBP images."
 
-    msg -- '' "Examples:
+    msg -- '' "Options:"
     -i Input dir option has the default value of the current directory, ./
     -o Output dir option has no default value 
     -q Quality option has the default value of 100
+
+    msg -- '' "Examples:
 
     All image file to WEBP files:
     $SCRIPT_NAME img2webp 

@@ -54,50 +54,32 @@ Please clone or download from the [repo](https://github.com/shinokada/consize).
 
 ## How to use
 
-Running this script will convert all images in the current directory.
+### Options
 
-### Convert PNG/JPG/JPEG to WEBP
+| Options | Description |
+|--|--|
+|-i| Input dir option has the default value of the current directory, ./|
+|-o| Output dir option has no default value |
+|-q| Quality option has the default value of 100|
+
+### Convert all image files (PNG/JPG/JPEG) to WEBP
 
 ```sh
-consize img2webp -d . -q 90
+consize img2webp -o path/to/outputdir
 ```
 
-Resized images will be in the `resized` dir.
+### Convert JPG/JPEG files
 
-### Resize all files to 540x284
+#### To WEBP
 
 ```sh
-consize resize -w 540 -h 284
+consize jpg2webp -o path/to/outputdir
 ```
 
-Combine both commands:
+#### To PNG
 
 ```sh
-consize img2webp -d . -q 90 && consize resize -w 540
-```
-
-### Convert PNG to WEBP
-
-```sh
-consize png2webp -d . -q 90
-```
-
-### Convert JPG/JPEG to WEBP
-
-```sh
-consize jpg2webp -d . -q 90
-```
-
-### Convert SVG to JPG
-
-Install `svgexport`:
-
-```sh
-npm install svgexport -g
-```
-
-```sh
-consize svg2jpg -d .
+consize jpg2png -o path/to/outputdir
 ```
 
 ## Optimize
@@ -105,7 +87,7 @@ consize svg2jpg -d .
 These commands will run **recursively** in the current directory or directory specified by the `-o` option.
 
 ```bash
-consize optimize_jpg
+consize optimize_jpg 
 consize optimize_png
 consize optimize_svg
 ```
@@ -118,6 +100,70 @@ The `consize organize_files` command will create directories based on the file e
 consize organize_files
 ```
 
+
+### Convert PNG
+
+#### To JPG
+
+```sh
+consize png2jpg -o path/to/outputdir
+```
+
+#### To WEBP
+
+```sh
+consize png2webp -o path/to/outputdir
+```
+
+
+### Resize JPG/PNG/WEBP
+
+Resized images will be in the `resized` dir.
+
+```sh
+consize resize -w 540 -h 284
+```
+
+Set only `width`
+
+```sh
+consize resize -w 540
+```
+
+
+### Convert SVG
+
+Install `svgexport`:
+
+```sh
+npm install svgexport -g
+```
+
+#### To JPG
+
+```sh
+consize svg2jpg
+```
+
+#### To PNG
+
+```sh
+consize svg2png
+```
+
+### Convert WEBP
+
+#### To JPG
+
+```sh
+consize webp2jpg
+```
+
+#### To PNG
+
+```sh
+consize webp2png
+```
 
 ## Credits
 
