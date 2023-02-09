@@ -11,6 +11,16 @@
 <a href="https://opensource.org/licenses/MIT" rel="nofollow" target="_blank"><img src="https://img.shields.io/github/license/shinokada/consize" alt="License" height="25"></a>
 </p>
 
+<p align="center">
+<picture>
+  <img
+    src="public/images/consize.png"
+    style="width: 100%;"
+    alt="Consize"
+  />
+</picture>
+</p>
+
 Bash script to convert formats and resize image.
 
 ## Getting started
