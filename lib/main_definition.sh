@@ -24,10 +24,10 @@ parser_definition() {
     cmd webp2png -- "Convert from WEBP to PNG files." 
     cmd resize -- "Resize all PNG/JPG/WEBP images."
 
-    msg -- '' "Options:"
+    msg -- '' "Options:
     -i Input dir option has the default value of the current directory, ./
     -o Output dir option has no default value 
-    -q Quality option has the default value of 100
+    -q Quality option has the default value of 100"
 
     msg -- '' "Examples:
 
