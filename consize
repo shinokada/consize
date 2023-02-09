@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # Title:         consize
-# Description:   Resize and convert to webp/png/jpg
+# Description:   A Bash script for converting and resizing images
 # Author:        Shinichi Okada <okada.shin@gmail.com>
-# Date:          2022-02-15
+# Date:          2023-02-09
 
 set -eu
 VERSION="0.5.4"
