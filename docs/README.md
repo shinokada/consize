@@ -100,6 +100,16 @@ npm install svgexport -g
 consize svg2jpg -d .
 ```
 
+## Optimize
+
+These commands will run recursively in the current directory or directory specified by the `-o` option.
+
+```bash
+consize optimize_jpg
+consize optimize_png
+consize optimize_svg
+```
+
 ## Credits
 
 - [Create optimize image](https://github.com/shinokada/create-optimize-images)

@@ -1,8 +1,8 @@
-fn_organize_images(){
+fn_organize_imgs(){
     input_dir="$1"
 
     if [[ -z "$input_dir" ]]; then
-        echo "Please specify an input directory."
+        bannerColor 'Please specify an input directory.' "red" "*"
         exit 1
     fi
 
@@ -17,10 +17,5 @@ fn_organize_images(){
         # move the images into their type directory
         rsync -a $img $img_type
     done
-
-    if [ ${OUTPUTDIR} ];then
-        bannerColor "Moving converted files to ${OUTPUTDIR} ... " "blue" "*"
-        mkdir -p ${OUTPUTDIR} && mv *.webp "${OUTPUTDIR}"
-        bannerColor "Moved all the files to ${OUTPUTDIR}." "green" "*"
-    fi
+    bannerColor 'Moved all files to each directory.' "green" "*"
 }

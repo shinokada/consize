@@ -11,7 +11,7 @@ fn_optimize_svg(){
 
     if [ ${OUTPUTDIR} ];then
         bannerColor "Moving converted files to ${OUTPUTDIR} ... " "blue" "*"
-        mkdir -p ${OUTPUTDIR} && mv *.webp "${OUTPUTDIR}"
+        mkdir -p ${OUTPUTDIR} && mv *.svg "${OUTPUTDIR}"
         bannerColor "Moved all the files to ${OUTPUTDIR}." "green" "*"
     fi
 }

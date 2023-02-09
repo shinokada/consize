@@ -58,6 +58,7 @@ script_dir=${self%/*}
     . "${script_dir}/lib/optimize_jpg_definition.sh"
     . "${script_dir}/lib/optimize_png_definition.sh"
     . "${script_dir}/lib/optimize_svg_definition.sh"
+    . "${script_dir}/lib/organize_imgs_definition.sh"
     . "${script_dir}/lib/png2jpg_definition.sh"
     . "${script_dir}/lib/png2webp_definition.sh"
     . "${script_dir}/lib/resize_definition.sh"
@@ -149,6 +150,14 @@ if [ $# -gt 0 ]; then
         # shellcheck disable=SC1091
         . "${script_dir}/src/optimize_svg.sh"
         fn_optimize_svg "$@"
+        ;;
+    organize_imgs)
+        eval "$(getoptions parser_definition_organize_imgs parse "$0")"
+        parse "$@"
+        eval "set -- $REST"
+        # shellcheck disable=SC1091
+        . "${script_dir}/src/organize_imgs.sh"
+        fn_organize_imgs "$@"
         ;;
     png2jpg)
         eval "$(getoptions parser_definition_png2jpg parse "$0")"
