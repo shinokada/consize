@@ -12,7 +12,7 @@ fn_optimize_jpg(){
     
     if [ ${OUTPUTDIR} ];then
         bannerColor "Moving converted files to ${OUTPUTDIR} ... " "blue" "*"
-        mkdir -p ${OUTPUTDIR} && mv *.webp "${OUTPUTDIR}"
+        mkdir -p ${OUTPUTDIR} && mv *-optimized.jpg *-optimized.jpeg "${OUTPUTDIR}"
         bannerColor "Moved all the files to ${OUTPUTDIR}." "green" "*"
     fi
 }
