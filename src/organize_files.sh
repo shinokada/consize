@@ -1,5 +1,13 @@
 fn_organize_files(){
 
+    bannerColor "Are you sure you want to organize this directory?" "yellow" "*"
+    read -p "Enter 'yes' or 'no': " answer
+
+    if [ "$answer" != "yes" ]; then
+        echo "Exiting the script..."
+        return
+    fi
+
     for img in $( find ${INPUTDIR} -type f -iname "*" );
     do
         # Skip processing of dot files

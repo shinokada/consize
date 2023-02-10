@@ -23,6 +23,4 @@ fn_svg2png(){
     done
 
     bannerColor 'Completed converting svg files to png files.' "green" "*"
-
-
 }
