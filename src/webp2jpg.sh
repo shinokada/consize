@@ -2,11 +2,15 @@ fn_webp2jpg(){
     check_cmd dwebp
     check_cmd convert
 
+    if [ ${OUTPUTDIR} ];then
+        mkdir -p ${OUTPUTDIR} 
+    fi
+
     # for each webp in the input directory
     for img in $( find ${INPUTDIR} -type f -iname "*.webp" );
     do
         # convert to png first
-        dwebp "$img" -o "${img%.*}".png
+        dwebp "$img" -o "${img%.*}".png >/dev/null 2>&1 
 
         # then convert png to jpg
         convert "${img%.*}".png -quality "${QUALITY}"% "${img%.*}".jpg
@@ -16,8 +20,8 @@ fn_webp2jpg(){
 
         if [ ${OUTPUTDIR} ];then
             bannerColor "Moving converted files to ${OUTPUTDIR} ... " "blue" "*"
-            mkdir -p ${OUTPUTDIR} && mv "${img%.*}".jpg "${OUTPUTDIR}"
-            bannerColor "Moved all the files to ${OUTPUTDIR}." "green" "*"
+            mv "${img%.*}".jpg "${OUTPUTDIR}"
+            bannerColor "Done." "green" "*"
         fi
     done
 

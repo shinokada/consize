@@ -1,6 +1,9 @@
 fn_jpg2png(){
     check_cmd convert
-
+    
+    if [ ${OUTPUTDIR} ];then
+        mkdir -p ${OUTPUTDIR} 
+    fi
     # for each jpg or jpeg in the input directory
     # this is not intentionally recursive
     for img in $( find ${INPUTDIR} -type f -iname "*.jpg" -o -iname "*.jpeg" );
@@ -9,8 +12,8 @@ fn_jpg2png(){
 
         if [ ${OUTPUTDIR} ];then
         bannerColor "Moving converted files to ${OUTPUTDIR} ... " "blue" "*"
-        mkdir -p ${OUTPUTDIR} && mv "${img%.*}".png "${OUTPUTDIR}"
-        bannerColor "Moved all the PNG files to ${OUTPUTDIR}." "green" "*"
+        mv "${img%.*}".png "${OUTPUTDIR}"
+        bannerColor "Done." "green" "*"
     fi
     done
 

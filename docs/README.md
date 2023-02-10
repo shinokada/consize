@@ -222,6 +222,13 @@ To PNG:
 consize webp2png
 ```
 
+## Tests
+
+```sh
+cd spec
+./test_functions.sh
+```
+
 ## Credits
 
 - [Create optimize image](https://github.com/shinokada/create-optimize-images)
