@@ -13,7 +13,7 @@ fn_optimize_jpg(){
 
         # move optimized jpg files
         if [ ${OUTPUTDIR} ];then
-            bannerColor "Moving converted files to ${OUTPUTDIR} ... " "blue" "*"
+            bannerColor "Moving optimized JPG files to ${OUTPUTDIR} ... " "blue" "*"
             mv "${img%.*}"-optimized.jpg "${OUTPUTDIR}" 2>&1 >/dev/null
             bannerColor "Done." "green" "*"
         fi

@@ -19,7 +19,7 @@ fn_optimize_png(){
 
         # move optimized png files
         if [ "${OUTPUTDIR}" ]; then
-            bannerColor "Moving optimized files to ${OUTPUTDIR}..." "blue" "*"
+            bannerColor "Moving optimized PNG files to ${OUTPUTDIR}..." "blue" "*"
             mv "${img%.*}-optimized.png" "${OUTPUTDIR}" 2>&1 >/dev/null
             bannerColor "Done." "green" "*"
         fi
@@ -27,10 +27,4 @@ fn_optimize_png(){
 
     bannerColor 'Completed converting img files to webp files.' "green" "*"
     
-    # move optimized png files
-    if [ ${OUTPUTDIR} ];then
-        bannerColor "Moving converted files to ${OUTPUTDIR} ... " "blue" "*"
-        mv *-optimized.png "${OUTPUTDIR}"
-        bannerColor "Done." "green" "*"
-    fi
 }
