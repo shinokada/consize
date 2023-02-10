@@ -4,16 +4,7 @@ fn_optimize_png(){
     if [ ${OUTPUTDIR} ];then
         mkdir -p ${OUTPUTDIR} 
     fi
-    # # Multithreading count
-    # PROCS=$(grep processor /proc/cpuinfo | wc -l)
 
-    # # for each png in the input directory
-    # do_file() {
-    #     img="$1"
-    #     optipng "$img" -out "${img%.*}-optimized.png" >/dev/null 2>&1
-    # }
-    # export -f do_file
-    # find "${INPUTDIR}" -type f -iname "*.png" -print0 | xargs -0 -n1 -P $PROCS bash -c 'do_file "$@"' _
     for img in $(find "${INPUTDIR}" -type f -iname "*.png"); do
         optipng "$img" -out "${img%.*}-optimized.png" >/dev/null 2>&1
 
