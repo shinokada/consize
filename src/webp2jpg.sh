@@ -10,13 +10,16 @@ fn_webp2jpg(){
 
         # then convert png to jpg
         convert "${img%.*}".png -quality "${QUALITY}"% "${img%.*}".jpg
+
+        # remove png
+        rm "${img%.*}".png
+
+        if [ ${OUTPUTDIR} ];then
+            bannerColor "Moving converted files to ${OUTPUTDIR} ... " "blue" "*"
+            mkdir -p ${OUTPUTDIR} && mv "${img%.*}".jpg "${OUTPUTDIR}"
+            bannerColor "Moved all the files to ${OUTPUTDIR}." "green" "*"
+        fi
     done
 
     bannerColor 'Completed converting webp files to jpg files.' "green" "*"
-
-    if [ ${OUTPUTDIR} ];then
-        bannerColor "Moving converted files to ${OUTPUTDIR} ... " "blue" "*"
-        mkdir -p ${OUTPUTDIR} && mv *.jpg "${OUTPUTDIR}"
-        bannerColor "Moved all the files to ${OUTPUTDIR}." "green" "*"
-    fi
 }

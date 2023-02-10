@@ -181,7 +181,7 @@ consize png2webp -o path/to/outputdir
 
 ### Resize JPG/PNG/WEBP
 
-The resized images will be in the `resized` directory.
+Resize all images to the `resized` directory.
 
 ```sh
 consize resize -w 540 -h 284
@@ -195,12 +195,6 @@ consize resize -w 540
 
 
 ### Convert SVG
-
-Install `svgexport`:
-
-```sh
-npm install svgexport -g
-```
 
 To JPG:
 

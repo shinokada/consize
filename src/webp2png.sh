@@ -5,13 +5,13 @@ fn_webp2png(){
     for img in $( find ${INPUTDIR} -type f -iname "*.webp" );
     do
         dwebp "$img" -o "${img%.*}".png
+
+        if [ ${OUTPUTDIR} ];then
+            bannerColor "Moving converted files to ${OUTPUTDIR} ... " "blue" "*"
+            mkdir -p ${OUTPUTDIR} && mv "${img%.*}".png "${OUTPUTDIR}"
+            bannerColor "Moved all the files to ${OUTPUTDIR}." "green" "*"
+        fi
     done
 
     bannerColor 'Completed converting webp files to png files.' "green" "*"
-
-    if [ ${OUTPUTDIR} ];then
-        bannerColor "Moving converted files to ${OUTPUTDIR} ... " "blue" "*"
-        mkdir -p ${OUTPUTDIR} && mv *.png "${OUTPUTDIR}"
-        bannerColor "Moved all the files to ${OUTPUTDIR}." "green" "*"
-    fi
 }
