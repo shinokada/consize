@@ -6,7 +6,7 @@
 # Date:          2023-02-09
 
 set -eu
-VERSION="0.5.4"
+VERSION="0.5.5"
 SCRIPT_NAME=$(basename "$0")
 
 # Keep readlinkf function
