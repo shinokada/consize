@@ -9,7 +9,7 @@ fn_svg2png(){
     # for each svg in the input directory
     for img in $( find ${INPUTDIR} -type f -iname "*.svg" );
     do
-        svgexport "$img" "${img%.*}".png "${WIDTH}":
+        svgexport "$img" "${img%.*}".png "${WIDTH}": "${QUALITY}%" 2>&1 </dev/null 
     done
 
     bannerColor 'Completed converting svg files to png files.' "green" "*"

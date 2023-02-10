@@ -9,7 +9,7 @@ fn_svg2jpg(){
     # for each svg in the input directory
     for img in $( find ${INPUTDIR} -type f -iname "*.svg" );
     do
-        svgexport "$img" "${img%.*}".jpg "${WIDTH}": "${QUALITY}%"
+        svgexport "$img" "${img%.*}".jpg "${WIDTH}": "${QUALITY}%" 2>&1 </dev/null 
     done
 
     bannerColor 'Completed converting svg files to jpg files.' "green" "*"

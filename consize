@@ -42,9 +42,9 @@ readlinkf() {
 
 self=$(readlinkf "$0")
 script_dir=${self%/*}
-# For Debian APT remove line 7 to 38 and use the following line to
+# For Debian APT remove line 8 to the above line and use the following line to
 # define the script_dir
-# script_dir="/usr/share/shellscript_template"
+# script_dir="/usr/share/consize"
 
 # Import files
 # shellcheck disable=SC1091
@@ -89,13 +89,13 @@ eval "set -- $REST"
 check_bash 5
 
 # Check dependencies of your script
-# check_cmd convert
-# check_cmd cwebp
-# check_cmd dwebp
-# check_cmd optipng
-# check_cmd jpegoptim
-# check_cmd svgo
-# check_cmd svgexport
+# check_cmd convert # imagemagick
+# check_cmd cwebp # webp 
+# check_cmd dwebp # webp
+# check_cmd optipng # optipng
+# check_cmd jpegoptim # jpegoptim
+# check_cmd svgo # npm package npm install -g svgo
+# check_cmd svgexport # npm package, npm install svgexport -g
 
 # Add more commands.
 # Don't forget to add your command in lib/main_definition.sh

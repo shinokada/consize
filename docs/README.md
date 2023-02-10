@@ -68,8 +68,52 @@ git clone https://github.com/shinokada/consize.git
 Consize requires the following dependencies to be installed:
 
 - ImageMagick
+
+```sh
+# mac
+brew install imagemagick
+# debian/ubuntu
+sudo apt -y install imagemagick
+```
+
 - webp
+
+```sh
+# mac
+brew install webp
+# debian/ubuntu
+sudo apt -y install webp
+```
+
+- jpegoptim
+
+```sh
+# mac
+brew install jpegoptim
+# debian/ubuntu
+sudo apt -y install jpegoptim
+```
+
 - optipng
+
+```sh
+# mac
+brew install optipng
+# debian/ubuntu
+sudo apt -y install optipng
+```
+
+- svgo
+
+```sh
+npm install -g svgo
+```
+
+- svgexport
+
+```sh
+npm install -g svgexport
+```
 
 ## Usage
 
@@ -106,9 +150,9 @@ consize jpg2png -o path/to/outputdir
 The following commands will run recursively in the current directory or the directory specified by the -o option.
 
 ```bash
-consize optimize_jpg 
-consize optimize_png
-consize optimize_svg
+consize optimize_jpg -o outputDir
+consize optimize_png -o outputDir
+consize optimize_svg -o outputDir
 ```
 
 ## Organize Files
