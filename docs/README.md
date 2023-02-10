@@ -181,7 +181,7 @@ consize png2webp -o path/to/outputdir
 
 ### Resize JPG/PNG/WEBP
 
-Resize all images to the `resized` directory.
+Resize command requires `-w`, `--width` option and it all images is created in the `resized` directory.
 
 ```sh
 consize resize -w 540 -h 284
@@ -196,10 +196,12 @@ consize resize -w 540
 
 ### Convert SVG
 
+Converting SVG files require the `-w`, `--width` option.
+
 To JPG:
 
 ```sh
-consize svg2jpg
+consize svg2jpg -w 50
 ```
 
 To PNG:

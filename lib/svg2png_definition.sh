@@ -6,5 +6,6 @@ parser_definition_svg2png() {
     param INPUTDIR -i --input init:="./" -- "input dir, accepts --dir value / --dir=value"
     param OUTPUTDIR -o --output -- "output dir, accepts --dir value / --dir=value"
     param WIDTH -w --width -- "accepts --width value / --width=value"
+    param QUALITY -q --quality init:=100 -- "accepts --height value / --height=value"
     disp :usage --help
 }
