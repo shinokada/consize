@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
 # Import files
-source ../src/img2webp.sh # done
+source ../src/img2webp.sh
 source ../src/jpg2png.sh
 source ../src/jpg2webp.sh
 source ../src/optimize_jpg.sh
 source ../src/optimize_png.sh
 source ../src/optimize_svg.sh
 source ../src/organize_files.sh
-source ../src/png2jpg.sh # done
+source ../src/png2jpg.sh
 source ../src/png2webp.sh
 source ../src/resize.sh
 source ../src/svg2jpg.sh
@@ -196,8 +196,6 @@ fi
 # Clean up the test directories
 rm -rf "${INPUTDIR}" "${OUTPUTDIR}"
 
-
-
 ###############################
 # organize_files
 ###############################
@@ -207,7 +205,8 @@ rm -rf "${INPUTDIR}" "${OUTPUTDIR}"
 # fn_png2jpg
 ################################
 bannerColor "Test fn_png2jpg function" "yellow" "*"
-
+INPUTDIR=./test-input-dir
+OUTPUTDIR=./test-output-dir
 # Create a test input directory and add some test png files
 mkdir -p "${INPUTDIR}"
 for i in {1..3}; do
@@ -235,7 +234,8 @@ rm -rf "${INPUTDIR}" "${OUTPUTDIR}"
 ###############################
 
 bannerColor "Test fn_png2webp function" "yellow" "*"
-
+INPUTDIR=./test-input-dir
+OUTPUTDIR=./test-output-dir
 # Create a test input directory and add some test png files
 mkdir -p "${INPUTDIR}"
 for i in {1..3}; do
@@ -264,9 +264,8 @@ rm -rf "${INPUTDIR}" "${OUTPUTDIR}"
 bannerColor "Test fn_resize function" "yellow" "*"
 # Set width and height
 WIDTH=300
-INPUTDIR="test_input"
-# Set the OUTPUTDIR variable
-OUTPUTDIR="${INPUTDIR}/resized"
+INPUTDIR=./test-input-dir
+OUTPUTDIR=./test-output-dir
 
 # Create a test input directory and add some test image files
 mkdir -p "${INPUTDIR}"
@@ -275,28 +274,18 @@ for i in {1..3}; do
 done
 
 # Run the function
-fn_resize >/dev/null
+fn_resize
 
 # Check if the resized files exist in the resized directory
 if [ $(find "${OUTPUTDIR}" -type f -iname "*.jpg" | wc -l) -eq $(find "${INPUTDIR}" -type f -iname "*.jpg" | wc -l)  ]; then
     bannerColor "Test passed: Images were resized and exist in the resized directory." "magenta" "*"
-    success_count($((success_count + 1)))
+    success_count=$((success_count + 1))
 else
+    bannerColor "Test failed: Images were not resized and exist in the resized directory." "red" "*"
     error_messages+=("Test failed: Images were not resized and exist in the resized directory.")
     error_count=$((error_count + 1))
     test_failed+=("Test fn_resize")
 fi
-
-# Check if the resized files have the correct dimension
-# for resized_img in $(find "${INPUTDIR}"/resized -type f -iname "*.jpg"); do
-#   dimension=$(identify -format "%wx%h" "$resized_img")
-#   if [ "$dimension" != "${WIDTH}x${HEIGHT}" ]; then
-#     error_messages+=("Test failed: Resized image $resized_img does not have the correct dimension.")
-#     error_count=$((error_count + 1))
-#     test_failed+=("Test fn_resize")
-#     break
-#   fi
-# done
 
 # Clean up the test directories
 rm -rf "${INPUTDIR}"  "${OUTPUTDIR}" 
@@ -306,6 +295,8 @@ rm -rf "${INPUTDIR}"  "${OUTPUTDIR}"
 ###############################
 bannerColor "Test fn_svg2jpg function" "yellow" "*"
 
+INPUTDIR=./test-input-dir
+OUTPUTDIR=./test-output-dir
 # Create a test input directory and add some test svg files
 mkdir -p "${INPUTDIR}"
 for i in {1..3}; do
@@ -335,7 +326,8 @@ rm -rf "${INPUTDIR}" "${OUTPUTDIR}"
 # svg2png
 ###############################
 bannerColor "Test fn_svg2png function" "yellow" "*"
-
+INPUTDIR=./test-input-dir
+OUTPUTDIR=./test-output-dir
 # Create a test input directory and add some test svg files
 mkdir -p "${INPUTDIR}"
 for i in {1..3}; do
