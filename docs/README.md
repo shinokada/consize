@@ -21,8 +21,6 @@
 </picture>
 </p>
 
-Converting and resizing images
-
 ## Introduction
 
 Consize converts and resizes image formats. It supports converting PNG, JPG, JPEG and WEBP files. The script is built with the help of ImageMagick, webp, and optipng.
