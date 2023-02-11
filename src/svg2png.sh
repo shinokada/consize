@@ -6,19 +6,18 @@ fn_svg2png(){
         exit 1
     fi
     
-    if [ ${OUTPUTDIR} ];then
-        mkdir -p ${OUTPUTDIR} 
+    if [ -n "${OUTPUTDIR}" ];then
+        mkdir -p "${OUTPUTDIR}" 
     fi
 
     # for each svg in the input directory
-    for img in $( find ${INPUTDIR} -type f -iname "*.svg" );
+    for img in $( find "${INPUTDIR}" -type f -iname "*.svg" );
     do
-        svgexport "$img" "${img%.*}".png "${WIDTH}": "${QUALITY}%" 2>&1 >/dev/null
-
-        if [ ${OUTPUTDIR} ];then
-            bannerColor "Moving converted files to ${OUTPUTDIR} ... " "blue" "*"
-            mv "${img%.*}".png "${OUTPUTDIR}"
-            bannerColor "Done." "green" "*"
+        if [ -n "${OUTPUTDIR}" ];then
+            file_name=$(basename "$img")
+            svgexport "$img" "${OUTPUTDIR}/${file_name%.*}".png "${WIDTH}": "${QUALITY}%" 2>&1 >/dev/null
+        else
+            svgexport "$img" "${img%.*}".png "${WIDTH}": "${QUALITY}%" 2>&1 >/dev/null
         fi
     done
 

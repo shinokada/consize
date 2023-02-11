@@ -1,22 +1,19 @@
 fn_png2jpg(){
     check_cmd convert
     
-    if [ ${OUTPUTDIR} ];then
-        mkdir -p ${OUTPUTDIR} 
+    if [ -n "${OUTPUTDIR}" ];then
+        mkdir -p "${OUTPUTDIR}" 
     fi
     # for each png in the input directory
-    for img in $( find ${INPUTDIR} -type f -iname "*.png" );
+    for img in $( find "${INPUTDIR}" -type f -iname "*.png" );
     do
-    
-        convert "$img" -quality "${QUALITY}"% "${img%.*}".jpg 2>&1 >/dev/null
-
-        if [ ${OUTPUTDIR} ];then
-            bannerColor "Moving converted files to ${OUTPUTDIR} ... " "blue" "*"
-            mv ${img%.*}.jpg "${OUTPUTDIR}"
-            bannerColor "Done." "green" "*"
+        if [ -n "${OUTPUTDIR}" ];then
+            file_name=$(basename "$img")
+            convert "$img" -quality "${QUALITY}"% "${OUTPUTDIR}/${file_name%.*}".jpg 2>&1 >/dev/null
+        else
+            convert "$img" -quality "${QUALITY}"% "${img%.*}".jpg 2>&1 >/dev/null
         fi
     done
 
     bannerColor "Completed converting png files to jpg files." "green" "*"
 }
-

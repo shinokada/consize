@@ -29,7 +29,7 @@ WIDTH=500
 ################################
 # fn_img2webp
 ###############################
-bannerColor "Test ${test_count}: fn_img2webp function" "yellow" "*"
+bannerColor "Test ${test_count}: fn_img2webp function" "black" "*"
 
 INPUTDIR=./test-input-img2webp-dir
 OUTPUTDIR=./test-output-img2webp-dir
@@ -62,7 +62,7 @@ test_count=$((test_count + 1))
 ###############################
 # jpg2png 
 ###############################
-bannerColor "Test ${test_count}: fn_jpg2png function" "yellow" "*"
+bannerColor "Test ${test_count}: fn_jpg2png function" "black" "*"
 INPUTDIR=./test-input-jpg2png-dir
 OUTPUTDIR=./test-output-jpg2png-dir
 # Create a test input directory and add some test jpg files
@@ -74,8 +74,7 @@ done
 # Run the function
 fn_jpg2png >/dev/null
 
-# Check if the converted png files exist in the output directory
-if [ -n "$OUTPUTDIR" ] && [ $(find "${OUTPUTDIR}" -type f -iname "*.png" | wc -l) -eq $(find "${INPUTDIR}" -type f -iname "*.jpg" | wc -l)  ]; then
+if [ -n "$OUTPUTDIR" ] && [ $(find "${OUTPUTDIR}" -type f -iname "*.png" | wc -l) -eq $(find "${INPUTDIR}" -type f -iname "*.jpg" | wc -l) ]; then
     bannerColor "Test passed: JPG files were converted to PNG and moved to the output directory." "magenta" "*"
     success_count=$((success_count + 1))
 else
@@ -91,7 +90,7 @@ test_count=$((test_count + 1))
 ###############################
 # jpg2webp
 ###############################
-bannerColor "Test ${test_count}: fn_jpg2webp function" "yellow" "*"
+bannerColor "Test ${test_count}: fn_jpg2webp function" "black" "*"
 INPUTDIR=./test-input-jpg2webp-dir
 OUTPUTDIR=./test-output-jpg2webp-dir
 # Create a test input directory and add some test jpg files
@@ -120,7 +119,7 @@ test_count=$((test_count + 1))
 ###############################
 # optimize_jpg
 ###############################
-bannerColor "Test ${test_count}: fn_optimize_jpg function" "yellow" "*"
+bannerColor "Test ${test_count}: fn_optimize_jpg function" "black" "*"
 INPUTDIR=./test-input-optimize_jpg-dir
 OUTPUTDIR=./test-output-optimize_jpg-dir
 # Create a test input directory and add some test jpg files
@@ -149,7 +148,7 @@ test_count=$((test_count + 1))
 ###############################
 # optimize_png
 ###############################
-bannerColor "Test ${test_count}: fn_optimize_png function" "yellow" "*"
+bannerColor "Test ${test_count}: fn_optimize_png function" "black" "*"
 INPUTDIR=./test-input-optimize_png-dir
 OUTPUTDIR=./test-output-optimize_png-dir
 # Create a test input directory and add some test jpg files
@@ -178,7 +177,7 @@ test_count=$((test_count + 1))
 ###############################
 # optimize_svg
 ###############################
-bannerColor "Test ${test_count}: fn_optimize_svg function" "yellow" "*"
+bannerColor "Test ${test_count}: fn_optimize_svg function" "black" "*"
 INPUTDIR=./test-input-optimize-svg-dir
 OUTPUTDIR=./test-output-optimize-svg-dir
 # Create a test input directory and add some test svg files
@@ -207,7 +206,7 @@ test_count=$((test_count + 1))
 ###############################
 # organize_files
 ###############################
-bannerColor "Test ${test_count}: fn_organize_files function" "yellow" "*"
+bannerColor "Test ${test_count}: fn_organize_files function" "black" "*"
 INPUTDIR=./test-input-organize-dir
 OUTPUTDIR=./test-output-organize-dir
 # Create a test input directory and add some test files
@@ -247,7 +246,7 @@ test_count=$((test_count + 1))
 ################################
 # fn_png2jpg
 ################################
-bannerColor "Test ${test_count}: fn_png2jpg function" "yellow" "*"
+bannerColor "Test ${test_count}: fn_png2jpg function" "black" "*"
 INPUTDIR=./test-input-png2jpg-dir
 OUTPUTDIR=./test-output-png2jpg-dir
 # Create a test input directory and add some test png files
@@ -276,7 +275,7 @@ test_count=$((test_count + 1))
 ###############################
 # png2webp
 ###############################
-bannerColor "Test ${test_count}: fn_png2webp function" "yellow" "*"
+bannerColor "Test ${test_count}: fn_png2webp function" "black" "*"
 INPUTDIR=./test-input-png2webp-dir
 OUTPUTDIR=./test-output-png2webp-dir
 # Create a test input directory and add some test png files
@@ -305,7 +304,7 @@ test_count=$((test_count + 1))
 ###############################
 # resize
 ###############################
-bannerColor "Test ${test_count}: fn_resize function" "yellow" "*"
+bannerColor "Test ${test_count}: fn_resize function" "black" "*"
 # Set width and height
 WIDTH=300
 INPUTDIR=./test-input-resize-dir
@@ -318,7 +317,7 @@ for i in {1..3}; do
 done
 
 # Run the function
-fn_resize
+fn_resize >/dev/null
 
 # Check if the resized files exist in the resized directory
 if [ $(find "${OUTPUTDIR}" -type f -iname "*.jpg" | wc -l) -eq $(find "${INPUTDIR}" -type f -iname "*.jpg" | wc -l)  ]; then
@@ -338,7 +337,7 @@ test_count=$((test_count + 1))
 ###############################
 # svg2jpg
 ###############################
-bannerColor "Test ${test_count}: fn_svg2jpg function" "yellow" "*"
+bannerColor "Test ${test_count}: fn_svg2jpg function" "black" "*"
 
 INPUTDIR=./test-input-svg2jpg-dir
 OUTPUTDIR=./test-output-svg2jpg-dir
@@ -371,7 +370,7 @@ test_count=$((test_count + 1))
 ###############################
 # svg2png
 ###############################
-bannerColor "Test ${test_count}: fn_svg2png function" "yellow" "*"
+bannerColor "Test ${test_count}: fn_svg2png function" "black" "*"
 INPUTDIR=./test-input-svg2png-dir
 OUTPUTDIR=./test-output-svg2png-dir
 # Create a test input directory and add some test svg files
@@ -404,7 +403,7 @@ test_count=$((test_count + 1))
 # webp2jpg
 ###############################
 # Test fn_webp2jpg function
-bannerColor "Test ${test_count}: fn_webp2jpg function" "yellow" "*"
+bannerColor "Test ${test_count}: fn_webp2jpg function" "black" "*"
 INPUTDIR=./test-input-webp2jpg-dir
 OUTPUTDIR=./test-output-webp2jpg-dir
 # Create a test input directory and add some test webp files
@@ -434,7 +433,7 @@ test_count=$((test_count + 1))
 # webp2png
 ###############################
 # Test fn_webp2jpg function
-bannerColor "Test ${test_count}: fn_webp2png function" "yellow" "*"
+bannerColor "Test ${test_count}: fn_webp2png function" "black" "*"
 INPUTDIR=./test-input-webp2png-dir
 OUTPUTDIR=./test-output-webp2png-dir
 # Create a test input directory and add some test webp files
@@ -465,7 +464,7 @@ test_count=$((test_count + 1))
 ###########################
 
 if [ $error_count -eq 0 ]; then
-    bannerColor "All Test passed: $success_count tests passed." "green" "="
+    bannerColor "All Test passed: $success_count tests passed." "cyan" "="
 else
     bannerColor "Test failed: $error_count errors found in the contents of the converted files." "red" "*"
     bannerColor "Failed Tests: " "red" "="

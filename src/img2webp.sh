@@ -2,41 +2,32 @@ fn_img2webp(){
     check_cmd cwebp
     check_cmd convert
 
-    if [ ${OUTPUTDIR} ];then
-        mkdir -p ${OUTPUTDIR} 
+    if [ -n ${OUTPUTDIR} ];then
+    mkdir -p ${OUTPUTDIR} 
     fi
     # This will NOT recursively convert. Only files in the INPUTDIR.
 
     # for each png in the input directory convert to webp
     for img in $( find ${INPUTDIR} -type f -iname "*.png" );
     do
-        cwebp "$img" -q "${QUALITY}" -o "${img%.*}".webp >/dev/null 2>&1 
-
-        if [ ${OUTPUTDIR} ];then
-            bannerColor "Moving converted files to ${OUTPUTDIR} ... " "blue" "*"
-            mv "${img%.*}".webp "${OUTPUTDIR}"
-            bannerColor "Moved all the files to ${OUTPUTDIR}." "green" "*"
-        fi
+        file_name=$(basename "$img")
+        cwebp "$img" -q "${QUALITY}" -o "${OUTPUTDIR}/${file_name%.*}".webp >/dev/null 2>&1 
     done
 
     # for each jpg or jpeg in the input directory convert to webp
     for img in $( find ${INPUTDIR} -type f -iname "*.jpg" -o -iname "*.jpeg" );
     do
         # convert to png first
-        convert "$img" "${img%.*}".png
+        file_name=$(basename "$img")
+        convert "$img" "${OUTPUTDIR}/${file_name%.*}".png
 
         # then convert png to webp
-        cwebp "${img%.*}".png -q "${QUALITY}" -o "${img%.*}".webp >/dev/null 2>&1
+        cwebp "${OUTPUTDIR}/${file_name%.*}".png -q "${QUALITY}" -o "${OUTPUTDIR}/${file_name%.*}".webp >/dev/null 2>&1
 
         # remove png
-        rm "${img%.*}".png
-
-        if [ ${OUTPUTDIR} ];then
-            bannerColor "Moving converted files to ${OUTPUTDIR} ... " "blue" "*"
-            mkdir -p ${OUTPUTDIR} && mv "${img%.*}".webp "${OUTPUTDIR}"
-            bannerColor "Done." "green" "*"
-        fi
+        rm "${OUTPUTDIR}/${file_name%.*}".png
     done
 
     bannerColor 'Completed converting from img to webp.' "green" "*"
+
 }
