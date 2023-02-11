@@ -1,32 +1,38 @@
 fn_resize(){
     check_cmd convert
 
-    CURRENT_DIR=$(pwd)
-
     if [[ -z "${WIDTH}" ]]; then
         echo "Please specify image width."
         exit 1
-    elif [[ "${HEIGHT}" ]]; then
-        DIMENSION="${WIDTH}x${HEIGHT}"
+    fi
+
+    if [[ -z "${HEIGHT}" ]]; then
+        DIMENSION="${WIDTH}"
     else
-        DIMENSION="${WIDTH}x"
+        DIMENSION="${WIDTH}x${HEIGHT}"
     fi
 
-    if [ -d "${INPUTDIR}/resized" ]; then
-        rm -rf "${INPUTDIR}/resized"
+    if [[ -z "${OUTPUTDIR}" ]]; then
+        echo "Please specify output directory."
+        exit 1
+    else
+        mkdir -p "${OUTPUTDIR}"
     fi
 
-    mkdir "${INPUTDIR}/resized"
-
-    # for each webp in the input directory
+    # for each image in the input directory
     bannerColor 'Resizing webp files ...' "blue" "*"
-    for img in $( find "$CURRENT_DIR" -type f \( -iname "*.webp" -o -iname "*.png" -o -iname "*.jpg" \));
+    for img in $(find "${INPUTDIR}" -type f \( -iname "*.webp" -o -iname "*.png" -o -iname "*.jpg" \));
     do
         # resize first
-        bannerColor "Resizing ${img} with dimention: ${DIMENSION}" "green" "*"
-        convert "${img}" -resize "${DIMENSION}" "${CURRENT_DIR}/resized/$(basename ${img})"
+        bannerColor "Resizing ${img} with dimension: ${DIMENSION}" "green" "*"
+        filename="$(basename "${img}")"
+        extension="${filename##*.}"
+        convert "${img}" -resize "${DIMENSION}" "${img%.*}-resized.${extension}"
+        # move optimized png files
+        bannerColor "Moving resized file to ${OUTPUTDIR}..." "blue" "*"
+        mv "${img%.*}-resized.${extension}" "${OUTPUTDIR}/${filename%.*}-resized.${extension}"
+        bannerColor "Done." "green" "*"
     done
 
     bannerColor 'Completed resizing webp files.' "green" "*"
-
 }

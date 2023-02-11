@@ -262,6 +262,11 @@ rm -rf "${INPUTDIR}" "${OUTPUTDIR}"
 # resize
 ###############################
 bannerColor "Test fn_resize function" "yellow" "*"
+# Set width and height
+WIDTH=300
+INPUTDIR="test_input"
+# Set the OUTPUTDIR variable
+OUTPUTDIR="${INPUTDIR}/resized"
 
 # Create a test input directory and add some test image files
 mkdir -p "${INPUTDIR}"
@@ -269,16 +274,11 @@ for i in {1..3}; do
   convert -size 100x100 xc:white -font Arial -pointsize 20 -draw "text 0,50 'Image $i'" "${INPUTDIR}"/image_$i.jpg
 done
 
-# Set width and height
-WIDTH=300
-INPUTDIR="$(pwd)/images"
-CURRENT_DIR=$(pwd)
-
 # Run the function
 fn_resize >/dev/null
 
 # Check if the resized files exist in the resized directory
-if [ $(find "${INPUTDIR}/resized" -type f -iname "*.jpg" | wc -l) -eq $(find "${INPUTDIR}" -type f -iname "*.jpg" | wc -l)  ]; then
+if [ $(find "${OUTPUTDIR}" -type f -iname "*.jpg" | wc -l) -eq $(find "${INPUTDIR}" -type f -iname "*.jpg" | wc -l)  ]; then
     bannerColor "Test passed: Images were resized and exist in the resized directory." "magenta" "*"
     success_count($((success_count + 1)))
 else
