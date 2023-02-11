@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # Title:         consize
 # Description:   A Bash script for converting and resizing images
@@ -6,7 +6,7 @@
 # Date:          2023-02-09
 
 set -eu
-VERSION="0.6.0"
+VERSION="0.7.0"
 SCRIPT_NAME=$(basename "$0")
 
 # Keep readlinkf function
@@ -86,7 +86,7 @@ eval "set -- $REST"
 # fi
 
 # If you are using Bash, check Bash version
-check_bash 5
+# check_bash 5
 
 # Check dependencies of your script
 # check_cmd convert # imagemagick

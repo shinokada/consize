@@ -383,7 +383,7 @@ for i in {1..3}; do
 done
 
 # Run the function
-fn_svg2png >/dev/null
+fn_svg2png 
 
 # Check if the png files exist in the current directory or output directory
 if [ $(find "${OUTPUTDIR}" -type f -iname "*.png" | wc -l) -eq $(find "${INPUTDIR}" -type f -iname "*.svg" | wc -l)  ]; then
