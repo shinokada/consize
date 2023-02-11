@@ -22,8 +22,6 @@ error_count=0
 success_count=0
 test_failed=()
 # Test variables
-INPUTDIR=./test-input-dir
-OUTPUTDIR=./test-output-dir
 QUALITY=50
 WIDTH=500
 
@@ -31,7 +29,8 @@ WIDTH=500
 # fn_img2webp
 ###############################
 bannerColor "Test fn_img2webp function" "yellow" "*"
-
+INPUTDIR=./test-input-img2webp-dir
+OUTPUTDIR=./test-output-img2webp-dir
 # Create a test input directory and add some test png files
 mkdir -p "${INPUTDIR}"
 # creating png and jpg three images each.
@@ -60,9 +59,9 @@ rm -rf "${INPUTDIR}" "${OUTPUTDIR}"
 ###############################
 # jpg2png 
 ###############################
-
 bannerColor "Test fn_jpg2png function" "yellow" "*"
-
+INPUTDIR=./test-input-jpg2png-dir
+OUTPUTDIR=./test-output-jpg2png-dir
 # Create a test input directory and add some test jpg files
 mkdir -p "${INPUTDIR}"
 for i in {1..3}; do
@@ -89,7 +88,8 @@ rm -rf "${INPUTDIR}" "${OUTPUTDIR}"
 # jpg2webp
 ###############################
 bannerColor "Test fn_jpg2webp function" "yellow" "*"
-
+INPUTDIR=./test-input-jpg2webp-dir
+OUTPUTDIR=./test-output-jpg2webp-dir
 # Create a test input directory and add some test jpg files
 mkdir -p "${INPUTDIR}"
 for i in {1..3}; do
@@ -115,9 +115,9 @@ rm -rf "${INPUTDIR}" "${OUTPUTDIR}"
 ###############################
 # optimize_jpg
 ###############################
-
 bannerColor "Test fn_optimize_jpg function" "yellow" "*"
-
+INPUTDIR=./test-input-optimize_jpg-dir
+OUTPUTDIR=./test-output-optimize_jpg-dir
 # Create a test input directory and add some test jpg files
 mkdir -p "${INPUTDIR}"
 for i in {1..3}; do
@@ -143,9 +143,9 @@ rm -rf "${INPUTDIR}" "${OUTPUTDIR}"
 ###############################
 # optimize_png
 ###############################
-
 bannerColor "Test fn_optimize_png function" "yellow" "*"
-
+INPUTDIR=./test-input-optimize_png-dir
+OUTPUTDIR=./test-output-optimize_png-dir
 # Create a test input directory and add some test jpg files
 mkdir -p "${INPUTDIR}"
 for i in {1..3}; do
@@ -171,9 +171,9 @@ rm -rf "${INPUTDIR}" "${OUTPUTDIR}"
 ###############################
 # optimize_svg
 ###############################
-
 bannerColor "Test fn_optimize_svg function" "yellow" "*"
-
+INPUTDIR=./test-input-optimize_svg-dir
+OUTPUTDIR=./test-output-optimize_svg-dir
 # Create a test input directory and add some test svg files
 mkdir -p "${INPUTDIR}"
 for i in {1..3}; do
@@ -199,14 +199,37 @@ rm -rf "${INPUTDIR}" "${OUTPUTDIR}"
 ###############################
 # organize_files
 ###############################
+bannerColor "Test fn_organize_files function" "yellow" "*"
+INPUTDIR=./test-input-organize-dir
+# Create a test input directory and add some test files
+mkdir -p "${INPUTDIR}"
+for i in {1..3}; do
+  convert -size 100x100 xc:white "${INPUTDIR}"/image_$i.jpg 2>&1 >/dev/null
+  echo "test file" > "${INPUTDIR}"/file_$i.txt 2>&1 >/dev/null
+done
 
+# Run the function
+echo "yes" | fn_organize_files >/dev/null
+
+# Check if the files have been moved to their respective type directories
+if [ -n "${INPUTDIR}" ] && [ $(find "${INPUTDIR}" -type d | wc -l) -eq 2 ] && [ $(find "${INPUTDIR}"/image/jpeg -type f | wc -l) -eq 3 ] && [ $(find "${INPUTDIR}"/text/plain -type f | wc -l) -eq 3 ]; then
+    bannerColor "Test passed: Files were organized and moved to their respective type directories." "magenta" "*"
+    success_count=$((success_count + 1))
+else
+    bannerColor "Test failed: Files were not organized and moved to their respective type directories." "red" "*"
+    error_count=$((error_count + 1))
+    test_failed+=("Test fn_organize_files")
+fi
+
+# Clean up the test directories
+rm -rf "${INPUTDIR}"
 
 ################################
 # fn_png2jpg
 ################################
 bannerColor "Test fn_png2jpg function" "yellow" "*"
-INPUTDIR=./test-input-dir
-OUTPUTDIR=./test-output-dir
+INPUTDIR=./test-input-png2jpg-dir
+OUTPUTDIR=./test-output-png2jpg-dir
 # Create a test input directory and add some test png files
 mkdir -p "${INPUTDIR}"
 for i in {1..3}; do
@@ -232,10 +255,9 @@ rm -rf "${INPUTDIR}" "${OUTPUTDIR}"
 ###############################
 # png2webp
 ###############################
-
 bannerColor "Test fn_png2webp function" "yellow" "*"
-INPUTDIR=./test-input-dir
-OUTPUTDIR=./test-output-dir
+INPUTDIR=./test-input-png2webp-dir
+OUTPUTDIR=./test-output-png2webp-dir
 # Create a test input directory and add some test png files
 mkdir -p "${INPUTDIR}"
 for i in {1..3}; do
@@ -264,8 +286,8 @@ rm -rf "${INPUTDIR}" "${OUTPUTDIR}"
 bannerColor "Test fn_resize function" "yellow" "*"
 # Set width and height
 WIDTH=300
-INPUTDIR=./test-input-dir
-OUTPUTDIR=./test-output-dir
+INPUTDIR=./test-input-resize-dir
+OUTPUTDIR=./test-output-resize-dir
 
 # Create a test input directory and add some test image files
 mkdir -p "${INPUTDIR}"
@@ -295,8 +317,8 @@ rm -rf "${INPUTDIR}"  "${OUTPUTDIR}"
 ###############################
 bannerColor "Test fn_svg2jpg function" "yellow" "*"
 
-INPUTDIR=./test-input-dir
-OUTPUTDIR=./test-output-dir
+INPUTDIR=./test-input-svg2jpg-dir
+OUTPUTDIR=./test-output-svg2jpg-dir
 # Create a test input directory and add some test svg files
 mkdir -p "${INPUTDIR}"
 for i in {1..3}; do
@@ -326,8 +348,8 @@ rm -rf "${INPUTDIR}" "${OUTPUTDIR}"
 # svg2png
 ###############################
 bannerColor "Test fn_svg2png function" "yellow" "*"
-INPUTDIR=./test-input-dir
-OUTPUTDIR=./test-output-dir
+INPUTDIR=./test-input-svg2png-dir
+OUTPUTDIR=./test-output-svg2png-dir
 # Create a test input directory and add some test svg files
 mkdir -p "${INPUTDIR}"
 for i in {1..3}; do
@@ -356,10 +378,10 @@ rm -rf "${INPUTDIR}" "${OUTPUTDIR}"
 ###############################
 # webp2jpg
 ###############################
-
 # Test fn_webp2jpg function
 bannerColor "Test fn_webp2jpg function" "yellow" "*"
-
+INPUTDIR=./test-input-webp2jpg-dir
+OUTPUTDIR=./test-output-webp2jpg-dir
 # Create a test input directory and add some test webp files
 mkdir -p "${INPUTDIR}"
 for i in {1..3}; do
@@ -385,10 +407,10 @@ rm -rf "${INPUTDIR}" "${OUTPUTDIR}"
 ###############################
 # webp2png
 ###############################
-
 # Test fn_webp2jpg function
 bannerColor "Test fn_webp2png function" "yellow" "*"
-
+INPUTDIR=./test-input-webp2png-dir
+OUTPUTDIR=./test-output-webp2png-dir
 # Create a test input directory and add some test webp files
 mkdir -p "${INPUTDIR}"
 for i in {1..3}; do
@@ -410,8 +432,6 @@ fi
 
 # Clean up the test directories
 rm -rf "${INPUTDIR}" "${OUTPUTDIR}" 
-
-
 
 ############################
 # errors

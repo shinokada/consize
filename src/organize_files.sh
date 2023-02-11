@@ -1,5 +1,4 @@
 fn_organize_files(){
-
     bannerColor "Are you sure you want to organize this directory?" "yellow" "*"
     read -p "Enter 'yes' or 'no': " answer
 
@@ -18,11 +17,11 @@ fn_organize_files(){
         # get the type of the image
         img_type=$(basename `file --mime-type -b $img`)
 
-        # create a directory for the image type
-        mkdir -p $img_type
+        # create a directory for the image type in the input directory
+        mkdir -p "${INPUTDIR}/${img_type}"
 
          # move the images into their type directory
-        mv "$img" "$img_type"
+        mv "$img" "${INPUTDIR}/${img_type}"
     done
     bannerColor 'Moved all files to each directory.' "green" "*"
 }
