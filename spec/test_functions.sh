@@ -464,7 +464,7 @@ test_count=$((test_count + 1))
 ###########################
 
 if [ $error_count -eq 0 ]; then
-    bannerColor "All Test passed: $success_count tests passed." "magenta" "="
+    bannerColor "All Test passed: $success_count tests passed." "green" "="
 else
     bannerColor "Test failed: $error_count errors found in the contents of the converted files." "red" "*"
     bannerColor "Failed Tests: " "red" "="
