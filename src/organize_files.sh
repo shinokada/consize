@@ -21,7 +21,7 @@ fn_organize_files(){
         mkdir -p "${INPUTDIR}${OUTPUTDIR}/${img_type}"
 
         # move the images into their type directory
-        mv "$img" "${INPUTDIR}${OUTPUTDIR}/${img_type}"
+        cp "$img" "${INPUTDIR}${OUTPUTDIR}/${img_type}"
     done
     bannerColor 'Moved all files to each directory.' "green" "*"
 }
