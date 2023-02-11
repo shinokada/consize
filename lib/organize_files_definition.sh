@@ -4,6 +4,6 @@ parser_definition_organize_files() {
     msg -- 'Oraganize images.' ''
     msg -- 'Options:'
     param INPUTDIR -i --input init:="./" -- "input dir, accepts --dir value / --dir=value"
-    param OUTPUTDIR -o --output -- "output dir, accepts --dir value / --dir=value"
+    param OUTPUTDIR -o --output init:="./organized" -- "output dir, accepts --dir value / --dir=value"
     disp :usage -h --help
 }

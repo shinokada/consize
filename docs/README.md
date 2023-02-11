@@ -157,10 +157,10 @@ consize optimize_svg -o outputDir
 
 ## Organize Files
 
-The `consize organize_files` command will create directories based on the file extensions and move all files into their respective directories.
+The `consize organize_files` command will create directories based on the file extensions and move all files into their respective directories. The default output directory is `oraganized`.
 
 ```bash
-consize organize_files
+consize organize_files -o 'outputdir'
 ```
 
 

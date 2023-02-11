@@ -18,10 +18,10 @@ fn_organize_files(){
         img_type=$(basename `file --mime-type -b $img`)
 
         # create a directory for the image type in the input directory
-        mkdir -p "${INPUTDIR}/${img_type}"
+        mkdir -p "${INPUTDIR}${OUTPUTDIR}/${img_type}"
 
-         # move the images into their type directory
-        mv "$img" "${INPUTDIR}/${img_type}"
+        # move the images into their type directory
+        mv "$img" "${INPUTDIR}${OUTPUTDIR}/${img_type}"
     done
     bannerColor 'Moved all files to each directory.' "green" "*"
 }
