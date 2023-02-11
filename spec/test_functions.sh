@@ -179,8 +179,8 @@ test_count=$((test_count + 1))
 # optimize_svg
 ###############################
 bannerColor "Test ${test_count}: fn_optimize_svg function" "yellow" "*"
-INPUTDIR=./test-input-optimize_svg-dir
-OUTPUTDIR=./test-output-optimize_svg-dir
+INPUTDIR=./test-input-optimize-svg-dir
+OUTPUTDIR=./test-output-optimize-svg-dir
 # Create a test input directory and add some test svg files
 mkdir -p "${INPUTDIR}"
 for i in {1..3}; do
@@ -209,6 +209,7 @@ test_count=$((test_count + 1))
 ###############################
 bannerColor "Test ${test_count}: fn_organize_files function" "yellow" "*"
 INPUTDIR=./test-input-organize-dir
+OUTPUTDIR=./test-output-organize-dir
 # Create a test input directory and add some test files
 mkdir -p "${INPUTDIR}"
 for i in {1..3}; do
@@ -240,7 +241,7 @@ fi
 
 
 # Clean up the test directories
-rm -rf "${INPUTDIR}"
+rm -rf "${INPUTDIR}" "${OUTPUTDIR}"
 test_count=$((test_count + 1))
 
 ################################
