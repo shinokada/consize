@@ -65,6 +65,13 @@ git clone https://github.com/shinokada/consize.git
 
 Consize requires the following dependencies to be installed:
 
+- zsh
+
+```sh
+# debian/ubuntu
+sudo apt install zsh
+```
+
 - ImageMagick
 
 ```sh
