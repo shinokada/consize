@@ -10,7 +10,7 @@ fn_optimize_png(){
             file_name=$(basename "$img")
             optipng "$img" -out "${OUTPUTDIR}/${file_name%.*}-optimized.png" >/dev/null 2>&1
         else
-            optipng "$img" -out "${img%.*}-optimized.png" >/dev/null 2>&1
+            optipng -o"${LEVEL}" "$img" -out "${img%.*}-optimized.png" >/dev/null 2>&1
         fi
     done
 
