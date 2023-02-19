@@ -2,7 +2,7 @@ fn_optimize_jpg(){
     check_cmd jpegoptim
 
     if [ -n "${OUTPUTDIR}" ];then
-    mkdir -p ${OUTPUTDIR} 
+    mkdir -p "${OUTPUTDIR} "
     fi
     # for each jpg or jpeg in the input directory
     # this will run recursively
