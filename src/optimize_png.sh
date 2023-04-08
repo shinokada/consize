@@ -8,9 +8,9 @@ fn_optimize_png(){
     for img in $(find "${INPUTDIR}" -type f -iname "*.png"); do
         if [ -n "${OUTPUTDIR}" ]; then
             file_name=$(basename "$img")
-            optipng "$img" -out "${OUTPUTDIR}/${file_name%.*}-optimized.png" >/dev/null 2>&1
+            optipng -o"${LEVEL}" -out "${OUTPUTDIR}/${file_name%.*}-optimized.png" "$img" >/dev/null 2>&1
         else
-            optipng -o"${LEVEL}" "$img" -out "${img%.*}-optimized.png" >/dev/null 2>&1
+            optipng -o"${LEVEL}" -out "${img%.*}-optimized.png" "$img" >/dev/null 2>&1
         fi
     done
 
