@@ -43,7 +43,7 @@
   <meta name="pwa-capable" content="yes">
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag () { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-56Q5D99ZCL');
   </script>
@@ -89,9 +89,9 @@
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register(
         '/service-worker.js', {
-          scope: '/'
-        }
-      )
+        scope: '/'
+      }
+      );
     }
   </script>
   <script type="application/ld+json">
