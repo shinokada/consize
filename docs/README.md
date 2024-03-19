@@ -1,3 +1,7 @@
+<p align="center">
+<a href='https://ko-fi.com/Z8Z2CHALG' target='_blank'><img height='42' style='border:0px;height:42px;' src='https://storage.ko-fi.com/cdn/kofi3.png?v=3' alt='Buy Me a Coffee at ko-fi.com' /></a>
+</p>
+
 <h1 align="center">Consize: CONvert and reSIZE</h1>
 
 <p align="center">
